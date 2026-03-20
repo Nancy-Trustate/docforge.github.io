@@ -60,8 +60,6 @@
 
         .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
 
-        .logo span { color: #e0ddd8; font-weight: 400; }
-
         nav ul {
             display: flex;
             list-style: none;
@@ -175,7 +173,7 @@
             box-shadow: 0 0 60px rgba(212, 115, 78, 0.35);
         }
 
-        /* Mountain SVG scene */
+        /* Mountain scene */
         .mountain-scene {
             position: relative;
             z-index: 1;
@@ -219,6 +217,7 @@
             font-size: 1.02rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+            text-align: justify;
         }
 
         .section-text a {
@@ -314,6 +313,7 @@
             color: var(--text-light);
             font-size: 0.92rem;
             line-height: 1.7;
+            text-align: justify;
         }
 
         /* TOOLS */
@@ -406,6 +406,7 @@
             font-size: 0.85rem;
             color: var(--text-light);
             line-height: 1.6;
+            text-align: justify;
         }
 
         /* PROCESS */
@@ -460,6 +461,333 @@
             font-size: 0.82rem;
             color: var(--text-light);
             line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            background: var(--parchment);
+            padding: 5rem 2rem;
+        }
+
+        .pricing-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--snow);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 4px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--forge-orange);
+            box-shadow: 0 0 0 1px var(--forge-orange), 0 8px 30px rgba(212,115,78,0.12);
+        }
+
+        .pricing-card.featured::after {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--forge-orange);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 3px;
+        }
+
+        .pricing-tier {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.4rem;
+        }
+
+        .pricing-range {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--forge-orange);
+            margin-bottom: 0.2rem;
+        }
+
+        .pricing-unit {
+            font-size: 0.78rem;
+            color: var(--stone);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            min-height: 80px;
+        }
+
+        .pricing-includes {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-includes p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .pricing-includes p::before {
+            content: '\2713';
+            color: var(--forge-orange);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            border: 1px solid var(--forge-orange);
+            color: var(--forge-orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .pricing-cta:hover {
+            background: var(--forge-orange);
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: var(--forge-orange);
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-cta:hover {
+            background: var(--forge-glow);
+        }
+
+        .pricing-addons {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: var(--snow);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 4px;
+        }
+
+        .pricing-addons h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .addon-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .addon-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--forge-orange);
+            margin-bottom: 0.2rem;
+        }
+
+        .addon-label {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .addons-grid { grid-template-columns: 1fr; }
+        }
+
+        /* MODAL FORM */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--snow);
+            border-radius: 6px;
+            padding: 2.5rem;
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--stone);
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover { color: var(--forge-orange); }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .modal .modal-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--stone);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            color: var(--text);
+            background: var(--parchment);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--forge-orange);
+            box-shadow: 0 0 0 3px rgba(212,115,78,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            background: var(--forge-orange);
+            color: white;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--forge-glow);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(212,115,78,0.25);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--stone);
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .form-row { grid-template-columns: 1fr; }
+            .modal { padding: 1.8rem 1.5rem; }
         }
 
         /* CONTACT */
@@ -472,7 +800,6 @@
             overflow: hidden;
         }
 
-        /* Forge glow effect */
         .contact-section::before {
             content: '';
             position: absolute;
@@ -598,6 +925,8 @@
         </div>
         <ul>
             <li><a href="#services">Services</a></li>
+            <li><a href="documents.html">What We Draft</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#tools">Platforms</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -639,94 +968,18 @@
             <a href="#contact" class="cta">Work With Us</a>
         </div>
 
-        <!-- PNW Mountain Scene -->
+        <!-- Simple gradient transition — charcoal to parchment -->
         <div class="mountain-scene">
-            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Sky gradient -->
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                    <linearGradient id="hero-fade" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stop-color="#1c1c1e"/>
-                        <stop offset="100%" stop-color="#2a3a32"/>
-                    </linearGradient>
-                    <linearGradient id="mountain-far" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#2a3a32"/>
-                        <stop offset="100%" stop-color="#1e2e26"/>
-                    </linearGradient>
-                    <linearGradient id="mountain-mid" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#243428"/>
-                        <stop offset="100%" stop-color="#1a2a20"/>
-                    </linearGradient>
-                    <linearGradient id="mountain-near" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#1e2822"/>
-                        <stop offset="100%" stop-color="#1a201c"/>
-                    </linearGradient>
-                    <linearGradient id="trees-grad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#1a2a1e"/>
-                        <stop offset="100%" stop-color="#141a16"/>
-                    </linearGradient>
-                    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#141a16"/>
-                        <stop offset="100%" stop-color="var(--parchment)"/>
+                        <stop offset="100%" stop-color="#faf8f5"/>
                     </linearGradient>
                 </defs>
-
-                <!-- Far mountains -->
-                <path d="M0,200 L80,140 L160,175 L280,90 L380,130 L480,70 L580,120 L680,85 L780,110 L880,60 L980,100 L1080,75 L1180,130 L1280,95 L1380,120 L1440,100 L1440,320 L0,320 Z" fill="url(#mountain-far)" opacity="0.7"/>
-
-                <!-- Snow caps -->
-                <path d="M270,95 L280,90 L290,95 Z" fill="rgba(255,255,255,0.15)"/>
-                <path d="M470,75 L480,70 L490,75 Z" fill="rgba(255,255,255,0.2)"/>
-                <path d="M870,65 L880,60 L890,65 Z" fill="rgba(255,255,255,0.2)"/>
-                <path d="M1070,80 L1080,75 L1090,80 Z" fill="rgba(255,255,255,0.12)"/>
-
-                <!-- Mid mountains -->
-                <path d="M0,240 L100,190 L200,210 L320,160 L440,190 L560,150 L660,180 L760,155 L860,170 L960,140 L1060,175 L1160,155 L1280,180 L1380,165 L1440,180 L1440,320 L0,320 Z" fill="url(#mountain-mid)" opacity="0.85"/>
-
-                <!-- Near mountains/hills -->
-                <path d="M0,270 L120,230 L240,250 L360,220 L480,240 L600,210 L720,240 L840,225 L960,245 L1080,215 L1200,240 L1320,225 L1440,240 L1440,320 L0,320 Z" fill="url(#mountain-near)"/>
-
-                <!-- Tree line silhouettes -->
-                <!-- Group 1 -->
-                <polygon points="40,260 48,235 56,260" fill="#141e16"/>
-                <polygon points="70,262 80,230 90,262" fill="#141e16"/>
-                <polygon points="100,258 106,240 112,258" fill="#141e16"/>
-                <polygon points="55,261 62,242 69,261" fill="#161f18"/>
-                <!-- Group 2 -->
-                <polygon points="180,252 190,220 200,252" fill="#141e16"/>
-                <polygon points="210,255 218,232 226,255" fill="#161f18"/>
-                <polygon points="240,250 247,228 254,250" fill="#141e16"/>
-                <!-- Group 3 -->
-                <polygon points="350,248 360,215 370,248" fill="#141e16"/>
-                <polygon points="380,252 388,225 396,252" fill="#161f18"/>
-                <polygon points="330,250 337,230 344,250" fill="#141e16"/>
-                <!-- Group 4 -->
-                <polygon points="520,242 532,205 544,242" fill="#141e16"/>
-                <polygon points="550,245 558,222 566,245" fill="#161f18"/>
-                <polygon points="500,244 508,225 516,244" fill="#141e16"/>
-                <!-- Group 5 -->
-                <polygon points="680,240 690,210 700,240" fill="#141e16"/>
-                <polygon points="710,243 720,218 730,243" fill="#161f18"/>
-                <polygon points="660,242 667,225 674,242" fill="#141e16"/>
-                <!-- Group 6 -->
-                <polygon points="840,235 850,208 860,235" fill="#141e16"/>
-                <polygon points="870,238 878,218 886,238" fill="#161f18"/>
-                <polygon points="820,237 828,220 836,237" fill="#141e16"/>
-                <!-- Group 7 -->
-                <polygon points="1000,238 1012,205 1024,238" fill="#141e16"/>
-                <polygon points="1030,240 1038,220 1046,240" fill="#161f18"/>
-                <polygon points="980,240 988,222 996,240" fill="#141e16"/>
-                <!-- Group 8 -->
-                <polygon points="1160,238 1170,212 1180,238" fill="#141e16"/>
-                <polygon points="1190,240 1198,220 1206,240" fill="#161f18"/>
-                <polygon points="1140,240 1148,224 1156,240" fill="#141e16"/>
-                <!-- Group 9 -->
-                <polygon points="1320,235 1330,210 1340,235" fill="#141e16"/>
-                <polygon points="1350,237 1358,220 1366,237" fill="#161f18"/>
-                <polygon points="1300,237 1308,222 1316,237" fill="#141e16"/>
-                <polygon points="1400,236 1410,215 1420,236" fill="#141e16"/>
-
-                <!-- Foreground ground -->
-                <path d="M0,265 Q360,255 720,262 Q1080,268 1440,258 L1440,320 L0,320 Z" fill="url(#ground)"/>
+                <rect x="0" y="0" width="1440" height="200" fill="url(#hero-fade)"/>
+                <!-- Subtle warm glow at the transition -->
+                <ellipse cx="720" cy="60" rx="500" ry="50" fill="rgba(212,115,78,0.03)"/>
             </svg>
         </div>
     </div>
@@ -760,7 +1013,6 @@
 
     <div class="divider">
         <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-            <!-- Anvil shape -->
             <rect x="8" y="14" width="24" height="4" rx="1"/>
             <rect x="12" y="10" width="16" height="5" rx="1"/>
             <rect x="4" y="17" width="32" height="3" rx="1"/>
@@ -772,7 +1024,7 @@
         <div class="tools-inner">
             <p class="section-label">Platforms We Work With</p>
             <h2 class="section-heading">Your Tools. Our Expertise.</h2>
-            <p class="section-text" style="margin: 0 auto 2rem;">We generate documents in Trustate and work with data from virtually any legal intake platform your firm uses. Whatever your tech stack looks like, we can work with it.</p>
+            <p class="section-text" style="margin: 0 auto 2rem; text-align: center;">We generate documents in Trustate and work with data from virtually any legal intake platform your firm uses. Whatever your tech stack looks like, we can work with it.</p>
 
             <div class="tools-grid">
                 <div class="tool-item">
@@ -835,6 +1087,88 @@
         </svg>
     </div>
 
+    <div class="pricing-section" id="pricing">
+        <div class="pricing-inner">
+            <p class="section-label" style="text-align:center;">Transparent Pricing</p>
+            <h2 class="section-heading" style="text-align:center;">Pay Per Package. No Subscriptions.</h2>
+            <p class="section-text" style="text-align:center; margin: 0 auto 2rem; max-width: 600px;">You only pay when you use us. Every package includes drafting, generation, formatting review, and one round of revisions.</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-tier">Standard</div>
+                    <div class="pricing-range">$35 &ndash; $65</div>
+                    <div class="pricing-unit">per document package</div>
+                    <p class="pricing-desc">Individual documents and straightforward drafting. The essentials your firm needs, done right.</p>
+                    <div class="pricing-includes">
+                        <p>Simple wills</p>
+                        <p>Individual powers of attorney</p>
+                        <p>Healthcare directives</p>
+                        <p>Trust amendments &amp; restatements</p>
+                        <p>Single standalone documents</p>
+                    </div>
+                    <a href="mailto:info@docforge.com" class="pricing-cta">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Comprehensive</div>
+                    <div class="pricing-range">$75 &ndash; $150</div>
+                    <div class="pricing-unit">per document package</div>
+                    <p class="pricing-desc">Full estate planning bundles and multi-document sets. The sweet spot for most firms.</p>
+                    <div class="pricing-includes">
+                        <p>Revocable living trust packages</p>
+                        <p>Trust + will + POA + healthcare bundles</p>
+                        <p>Trust funding document sets</p>
+                        <p>Trust administration packages</p>
+                        <p>Matter sync from your intake platform</p>
+                    </div>
+                    <a href="mailto:info@docforge.com" class="pricing-cta">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-tier">Complex</div>
+                    <div class="pricing-range">$175 &ndash; $300</div>
+                    <div class="pricing-unit">per document package</div>
+                    <p class="pricing-desc">Specialized trusts, full probate filings, and anything that needs extra expertise.</p>
+                    <div class="pricing-includes">
+                        <p>Irrevocable trusts (ILIT, SLAT, GRAT, SNT)</p>
+                        <p>Complete probate filing packages</p>
+                        <p>Multi-state coordinated documents</p>
+                        <p>Complex trust structures</p>
+                        <p>Priority turnaround included</p>
+                    </div>
+                    <a href="mailto:info@docforge.com" class="pricing-cta">Get Started</a>
+                </div>
+            </div>
+
+            <div class="pricing-addons">
+                <h3>Add-Ons &amp; Discounts</h3>
+                <div class="addons-grid">
+                    <div class="addon-item">
+                        <div class="addon-price">+50%</div>
+                        <div class="addon-label">Rush turnaround (24 hours or less)</div>
+                    </div>
+                    <div class="addon-item">
+                        <div class="addon-price">$25</div>
+                        <div class="addon-label">Additional revision rounds beyond the first</div>
+                    </div>
+                    <div class="addon-item">
+                        <div class="addon-price">10% Off</div>
+                        <div class="addon-label">Volume discount for 10+ packages per month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">
+        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="14" width="24" height="4" rx="1"/>
+            <rect x="12" y="10" width="16" height="5" rx="1"/>
+            <rect x="4" y="17" width="32" height="3" rx="1"/>
+            <rect x="14" y="20" width="12" height="4" rx="1"/>
+        </svg>
+    </div>
+
     <section id="about">
         <p class="section-label">Who We Are</p>
         <h2 class="section-heading">About DocForge</h2>
@@ -863,6 +1197,12 @@
                         <p>We plug into your existing workflows. No onboarding headaches, no learning curve. Just results.</p>
                     </div>
                 </div>
+                <div class="highlight">
+                    <div>
+                        <h4>Woman Owned &amp; Military Spouse Operated</h4>
+                        <p>Proudly woman-owned and military spouse operated out of Naval Air Station Whidbey Island, WA.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -871,7 +1211,7 @@
         <div class="contact-inner">
             <p class="section-label">Let's Work Together</p>
             <h2 class="section-heading">Ready to Forge Something Great?</h2>
-            <p class="section-text">Whether you need ongoing document support or help with a single project, we're here to make your drafting process easier.</p>
+            <p class="section-text" style="text-align: center;">Whether you need ongoing document support or help with a single project, we're here to make your drafting process easier.</p>
 
             <div class="contact-info">
                 <div class="contact-item">
@@ -893,8 +1233,117 @@
     </div>
 
     <footer>
-        &copy; 2026 DocForge, LLC &middot; Oak Harbor, Washington &middot; All rights reserved.
+        &copy; 2026 DocForge, LLC &middot; Oak Harbor, Washington &middot; Woman Owned &middot; Military Spouse Operated &middot; All rights reserved.
     </footer>
+
+    <!-- CONTACT FORM MODAL -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Let's Get Started</h2>
+            <p class="modal-subtitle">Tell us a little about your firm and what you need. We'll get back to you within one business day.</p>
+
+            <form action="https://formsubmit.co/info@docforge.com" method="POST">
+                <!-- FormSubmit config -->
+                <input type="hidden" name="_subject" value="New DocForge Inquiry">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_next" value="">
+                <input type="text" name="_honey" style="display:none">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="Name" required placeholder="Jane Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="firm">Firm Name *</label>
+                        <input type="text" id="firm" name="Firm" required placeholder="Smith & Associates">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="Email" required placeholder="jane@smithlaw.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="package">Package Interest</label>
+                    <select id="package" name="Package Interest">
+                        <option value="">Select a tier (optional)</option>
+                        <option value="Standard ($35-$65)">Standard — $35–$65 per package</option>
+                        <option value="Comprehensive ($75-$150)">Comprehensive — $75–$150 per package</option>
+                        <option value="Complex ($175-$300)">Complex — $175–$300 per package</option>
+                        <option value="Not sure yet">Not sure yet — help me figure it out</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="volume">Estimated Monthly Volume</label>
+                    <select id="volume" name="Monthly Volume">
+                        <option value="">How many packages per month? (optional)</option>
+                        <option value="1-5">1–5 packages</option>
+                        <option value="6-10">6–10 packages</option>
+                        <option value="11-20">11–20 packages</option>
+                        <option value="20+">20+ packages</option>
+                        <option value="Just getting started">Just getting started</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell Us More</label>
+                    <textarea id="message" name="Message" placeholder="What documents do you need help with? Any specific platforms you use? Anything else we should know?"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Inquiry</button>
+                <p class="form-note">We'll respond within 1 business day. Your information stays between us.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on overlay click (not the form itself)
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Wire up all CTA buttons
+        document.querySelectorAll('.cta, .contact-cta, .pricing-cta').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        // Also wire up the nav "Contact" link
+        document.querySelectorAll('nav a[href="#contact"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+    </script>
 
 </body>
 </html>
