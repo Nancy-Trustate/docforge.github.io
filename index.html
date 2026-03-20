@@ -3,67 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DocForge, LLC | Legal Document Drafting</title>
-    <meta name="description" content="DocForge, LLC provides professional legal document drafting services. Based in Oak Harbor, Washington.">
+    <title>DocForge, LLC | Legal Document Drafting &amp; Trustate Services</title>
+    <meta name="description" content="DocForge, LLC — A team of paralegals and legal assistants specializing in trusts, estates, and probate. Trustate Certified document generation, matter sync, and quality review for law firms nationwide.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --dark: #0f1117;
-            --darker: #080a0f;
-            --accent: #e84393;
-            --accent-glow: rgba(232, 67, 147, 0.3);
-            --text: #e0e0e0;
-            --text-muted: #8a8a9a;
-            --card-bg: rgba(255,255,255,0.03);
-            --border: rgba(255,255,255,0.06);
+            --charcoal: #1c1c1e;
+            --iron: #2a2a2e;
+            --forge-orange: #d4734e;
+            --forge-glow: #e8956e;
+            --ember: rgba(212, 115, 78, 0.15);
+            --forest: #3a5a4a;
+            --pine: #4a7a5e;
+            --mist: #8fb0a0;
+            --sky: #7ca8b8;
+            --cloud: #f0f4f2;
+            --parchment: #faf8f5;
+            --snow: #ffffff;
+            --stone: #5a5a64;
+            --text: #2a2a2e;
+            --text-light: #5a5a64;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--darker);
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--parchment);
             color: var(--text);
             line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* Subtle animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(232, 67, 147, 0.04) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(108, 92, 231, 0.04) 0%, transparent 50%);
-            z-index: -1;
         }
 
         /* NAV */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(8, 10, 15, 0.85);
+            background: rgba(28, 28, 30, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(212, 115, 78, 0.15);
             z-index: 100;
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--accent);
-            text-transform: uppercase;
+            color: var(--forge-orange);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        .logo span {
-            color: var(--text);
-            font-weight: 300;
-        }
+        .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+        .logo span { color: #e0ddd8; font-weight: 400; }
 
         nav ul {
             display: flex;
@@ -72,187 +69,432 @@
         }
 
         nav a {
-            color: var(--text-muted);
+            color: #a0a0a8;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
+            font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.3s;
         }
 
-        nav a:hover { color: var(--accent); }
+        nav a:hover { color: var(--forge-orange); }
 
         /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 6rem 2rem 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        /* Stars */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 40%;
+            background:
+                radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 25% 8%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 40% 22%, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 55% 5%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 70% 18%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1.5px 1.5px at 85% 12%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(1px 1px at 15% 30%, rgba(255,255,255,0.25), transparent),
+                radial-gradient(1px 1px at 50% 28%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 78% 25%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 92% 8%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(1px 1px at 33% 35%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1.5px 1.5px at 62% 15%, rgba(255,255,255,0.45), transparent);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 3rem;
+        }
+
+        .hero-logo {
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
             font-weight: 700;
-            letter-spacing: 4px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+            color: var(--parchment);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
         }
 
-        .hero h1 .accent { color: var(--accent); }
+        .hero h1 .accent { color: var(--forge-orange); }
 
         .hero .tagline {
+            font-family: 'Playfair Display', serif;
             font-size: clamp(1rem, 2vw, 1.3rem);
-            color: var(--text-muted);
-            font-weight: 300;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            color: var(--mist);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 1rem;
+            max-width: 550px;
+        }
+
+        .hero .sub-tagline {
+            font-size: 0.95rem;
+            color: #8a8a94;
+            max-width: 540px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
         }
 
         .hero .cta {
             display: inline-block;
-            padding: 0.9rem 2.5rem;
-            background: var(--accent);
+            padding: 0.85rem 2.2rem;
+            background: var(--forge-orange);
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            border-radius: 2px;
+            border-radius: 3px;
             transition: all 0.3s;
-            box-shadow: 0 0 30px var(--accent-glow);
+            box-shadow: 0 0 40px rgba(212, 115, 78, 0.2);
         }
 
         .hero .cta:hover {
-            background: #d63384;
-            box-shadow: 0 0 50px var(--accent-glow);
+            background: var(--forge-glow);
             transform: translateY(-2px);
+            box-shadow: 0 0 60px rgba(212, 115, 78, 0.35);
         }
 
-        .scroll-hint {
-            margin-top: 4rem;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: pulse 2s ease-in-out infinite;
+        /* Mountain SVG scene */
+        .mountain-scene {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            margin-top: 2rem;
+            line-height: 0;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
+        .mountain-scene svg {
+            width: 100%;
+            height: auto;
         }
 
         /* SECTIONS */
         section {
             padding: 5rem 2rem;
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 0.85rem;
+        .section-label {
+            font-size: 0.72rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.8rem;
+            color: var(--forge-orange);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
         }
 
         .section-heading {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
         }
 
         .section-text {
-            color: var(--text-muted);
-            max-width: 700px;
-            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 650px;
+            font-size: 1.02rem;
+            line-height: 1.8;
             margin-bottom: 2rem;
         }
 
+        .section-text a {
+            color: var(--forge-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .section-text a:hover { text-decoration: underline; }
+
+        /* ANVIL DIVIDER */
+        .divider {
+            text-align: center;
+            padding: 2.5rem 0;
+            position: relative;
+        }
+
+        .divider svg {
+            width: 40px;
+            height: 24px;
+            fill: var(--forge-orange);
+            opacity: 0.4;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: calc(50% - 40px);
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 115, 78, 0.15), transparent);
+        }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
         /* SERVICES */
+        .services-section {
+            background: var(--snow);
+            padding: 5rem 2rem;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .services-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .service-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+            background: var(--parchment);
+            border: 1px solid rgba(0,0,0,0.06);
             padding: 2rem;
             border-radius: 4px;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--forge-orange);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before { opacity: 1; }
 
         .service-card:hover {
-            border-color: rgba(232, 67, 147, 0.2);
             transform: translateY(-4px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .service-card .icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
         }
 
         .service-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.7rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
+            color: var(--charcoal);
         }
 
         .service-card p {
-            color: var(--text-muted);
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* TOOLS */
+        .tools-section {
+            background: var(--parchment);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .tools-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tools-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-badge {
+            display: block;
+            padding: 0.9rem 1.8rem;
+            background: var(--snow);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 4px;
+            font-weight: 600;
             font-size: 0.95rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .tool-badge:hover {
+            border-color: var(--forge-orange);
+            box-shadow: 0 4px 20px rgba(212, 115, 78, 0.12);
+            transform: translateY(-2px);
+            color: var(--forge-orange);
+        }
+
+        .tool-desc {
+            font-size: 0.72rem;
+            color: var(--stone);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* ABOUT */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 3rem;
-            align-items: center;
+            align-items: start;
         }
 
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .stat {
-            padding: 1.5rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+        .highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--snow);
             border-radius: 4px;
+            border-left: 3px solid var(--forge-orange);
+        }
+
+        .highlight h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* PROCESS */
+        .process-section {
+            background: var(--snow);
+            padding: 5rem 2rem;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .process-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step {
             text-align: center;
+            padding: 1.5rem 1rem;
         }
 
-        .stat .number {
-            font-size: 2rem;
+        .step-number {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--charcoal);
+            color: var(--forge-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
             font-weight: 700;
-            color: var(--accent);
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
-        .stat .label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.3rem;
+        .step h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.4rem;
+        }
+
+        .step p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
         /* CONTACT */
-        #contact {
+        .contact-section {
+            background: var(--charcoal);
+            color: var(--parchment);
+            padding: 5rem 2rem;
             text-align: center;
-            padding-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Forge glow effect */
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(212, 115, 78, 0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .contact-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section .section-label { color: var(--forge-orange); }
+        .contact-section .section-heading { color: var(--parchment); }
+        .contact-section .section-text { color: #8a8a94; margin: 0 auto 2rem; }
 
         .contact-info {
             display: flex;
@@ -262,161 +504,396 @@
             flex-wrap: wrap;
         }
 
-        .contact-item {
-            text-align: center;
-        }
+        .contact-item { text-align: center; }
 
         .contact-item .label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+            color: var(--forge-orange);
+            margin-bottom: 0.4rem;
         }
 
-        .contact-item .value {
-            color: var(--text);
-            font-size: 1.05rem;
-        }
+        .contact-item .value { font-size: 1rem; }
 
         .contact-item a {
-            color: var(--text);
+            color: var(--parchment);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .contact-item a:hover { color: var(--accent); }
+        .contact-item a:hover { color: var(--forge-orange); }
+
+        .contact-cta {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 0.85rem 2.2rem;
+            background: var(--forge-orange);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(212, 115, 78, 0.2);
+        }
+
+        .contact-cta:hover {
+            background: var(--forge-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(212, 115, 78, 0.35);
+        }
 
         /* FOOTER */
         footer {
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* DIVIDER */
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: var(--accent);
-            margin: 0 auto 3rem;
-            opacity: 0.5;
+            padding: 1.5rem 2rem;
+            background: #141416;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            nav { padding: 0.8rem 1.2rem; }
             nav ul { gap: 1rem; }
-            nav a { font-size: 0.75rem; }
+            nav a { font-size: 0.72rem; }
             .about-content { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
             .contact-info { flex-direction: column; gap: 1.5rem; }
             section { padding: 3rem 1.5rem; }
+            .services-section, .process-section { padding: 3rem 1.5rem; }
+            .contact-section { padding: 3rem 1.5rem; }
+            .tools-grid { gap: 1.5rem; }
         }
 
-        /* SMOOTH SCROLL */
+        @media (max-width: 480px) {
+            .process-steps { grid-template-columns: 1fr; }
+        }
+
         html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Doc<span>Forge</span></div>
+        <div class="logo">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="nav-ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8956e"/><stop offset="100%" stop-color="#b85a3a"/></linearGradient></defs>
+                <circle cx="200" cy="200" r="155" fill="none" stroke="url(#nav-ring)" stroke-width="4.5"/>
+                <circle cx="200" cy="200" r="153" fill="rgba(212,115,78,0.04)"/>
+                <g transform="translate(200, 195) rotate(-30)">
+                    <rect x="-7" y="-15" width="14" height="155" rx="5" fill="#5a4a32"/>
+                    <rect x="-10" y="-18" width="20" height="8" rx="2" fill="#8a7a6a" opacity="0.7"/>
+                    <rect x="-45" y="-48" width="90" height="34" rx="5" fill="#d4734e"/>
+                    <rect x="-42" y="-45" width="84" height="9" rx="3" fill="#e8956e" opacity="0.35"/>
+                    <rect x="36" y="-48" width="14" height="34" rx="3" fill="#b85a3a"/>
+                    <path d="M-45,-38 L-62,-31 L-45,-24 Z" fill="#b85a3a"/>
+                </g>
+            </svg>
+            DocForge
+        </div>
         <ul>
             <li><a href="#services">Services</a></li>
+            <li><a href="#tools">Platforms</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <div class="hero">
-        <h1><span class="accent">Doc</span>Forge</h1>
-        <p class="tagline">Professional legal document drafting, built for precision.</p>
-        <a href="#contact" class="cta">Get in Touch</a>
-        <div class="scroll-hint">Scroll to explore</div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
+                    <defs><linearGradient id="hero-ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8956e"/><stop offset="100%" stop-color="#b85a3a"/></linearGradient></defs>
+                    <circle cx="200" cy="200" r="155" fill="none" stroke="url(#hero-ring)" stroke-width="4.5"/>
+                    <circle cx="200" cy="200" r="153" fill="rgba(212,115,78,0.04)"/>
+                    <g transform="translate(200, 195) rotate(-30)">
+                        <rect x="-7" y="-15" width="14" height="155" rx="5" fill="#5a4a32"/>
+                        <line x1="-3" y1="0" x2="-3" y2="125" stroke="#4a3a22" stroke-width="1" opacity="0.5"/>
+                        <line x1="3" y1="-8" x2="3" y2="120" stroke="#6a5a42" stroke-width="0.8" opacity="0.4"/>
+                        <line x1="-5.5" y1="85" x2="5.5" y2="93" stroke="#6a5a42" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="-5.5" y1="98" x2="5.5" y2="106" stroke="#6a5a42" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="-5.5" y1="111" x2="5.5" y2="119" stroke="#6a5a42" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="-5.5" y1="124" x2="5.5" y2="132" stroke="#6a5a42" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="-10" y="-18" width="20" height="8" rx="2" fill="#8a7a6a" opacity="0.7"/>
+                        <rect x="-45" y="-48" width="90" height="34" rx="5" fill="#d4734e"/>
+                        <rect x="-42" y="-45" width="84" height="9" rx="3" fill="#e8956e" opacity="0.35"/>
+                        <rect x="36" y="-48" width="14" height="34" rx="3" fill="#b85a3a"/>
+                        <line x1="49" y1="-43" x2="49" y2="-18" stroke="#c86a4a" stroke-width="1" opacity="0.4"/>
+                        <path d="M-45,-38 L-62,-31 L-45,-24 Z" fill="#b85a3a"/>
+                    </g>
+                    <circle cx="145" cy="112" r="3" fill="#d4734e" opacity="0.65"/>
+                    <circle cx="122" cy="132" r="2.2" fill="#e8956e" opacity="0.45"/>
+                    <circle cx="158" cy="96" r="2" fill="#d4734e" opacity="0.55"/>
+                    <circle cx="135" cy="145" r="1.5" fill="#e8956e" opacity="0.38"/>
+                    <circle cx="170" cy="105" r="1.4" fill="#d4734e" opacity="0.45"/>
+                </svg>
+            </div>
+            <h1>Doc<span class="accent">Forge</span></h1>
+            <p class="tagline">Documents forged with precision. Trusted by firms.</p>
+            <p class="sub-tagline">A team of paralegals and legal assistants with deep trusts, estates, and probate expertise &mdash; and Trustate Certified to generate your documents fast.</p>
+            <a href="#contact" class="cta">Work With Us</a>
+        </div>
+
+        <!-- PNW Mountain Scene -->
+        <div class="mountain-scene">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sky gradient -->
+                <defs>
+                    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#1c1c1e"/>
+                        <stop offset="100%" stop-color="#2a3a32"/>
+                    </linearGradient>
+                    <linearGradient id="mountain-far" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#2a3a32"/>
+                        <stop offset="100%" stop-color="#1e2e26"/>
+                    </linearGradient>
+                    <linearGradient id="mountain-mid" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#243428"/>
+                        <stop offset="100%" stop-color="#1a2a20"/>
+                    </linearGradient>
+                    <linearGradient id="mountain-near" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#1e2822"/>
+                        <stop offset="100%" stop-color="#1a201c"/>
+                    </linearGradient>
+                    <linearGradient id="trees-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#1a2a1e"/>
+                        <stop offset="100%" stop-color="#141a16"/>
+                    </linearGradient>
+                    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#141a16"/>
+                        <stop offset="100%" stop-color="var(--parchment)"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- Far mountains -->
+                <path d="M0,200 L80,140 L160,175 L280,90 L380,130 L480,70 L580,120 L680,85 L780,110 L880,60 L980,100 L1080,75 L1180,130 L1280,95 L1380,120 L1440,100 L1440,320 L0,320 Z" fill="url(#mountain-far)" opacity="0.7"/>
+
+                <!-- Snow caps -->
+                <path d="M270,95 L280,90 L290,95 Z" fill="rgba(255,255,255,0.15)"/>
+                <path d="M470,75 L480,70 L490,75 Z" fill="rgba(255,255,255,0.2)"/>
+                <path d="M870,65 L880,60 L890,65 Z" fill="rgba(255,255,255,0.2)"/>
+                <path d="M1070,80 L1080,75 L1090,80 Z" fill="rgba(255,255,255,0.12)"/>
+
+                <!-- Mid mountains -->
+                <path d="M0,240 L100,190 L200,210 L320,160 L440,190 L560,150 L660,180 L760,155 L860,170 L960,140 L1060,175 L1160,155 L1280,180 L1380,165 L1440,180 L1440,320 L0,320 Z" fill="url(#mountain-mid)" opacity="0.85"/>
+
+                <!-- Near mountains/hills -->
+                <path d="M0,270 L120,230 L240,250 L360,220 L480,240 L600,210 L720,240 L840,225 L960,245 L1080,215 L1200,240 L1320,225 L1440,240 L1440,320 L0,320 Z" fill="url(#mountain-near)"/>
+
+                <!-- Tree line silhouettes -->
+                <!-- Group 1 -->
+                <polygon points="40,260 48,235 56,260" fill="#141e16"/>
+                <polygon points="70,262 80,230 90,262" fill="#141e16"/>
+                <polygon points="100,258 106,240 112,258" fill="#141e16"/>
+                <polygon points="55,261 62,242 69,261" fill="#161f18"/>
+                <!-- Group 2 -->
+                <polygon points="180,252 190,220 200,252" fill="#141e16"/>
+                <polygon points="210,255 218,232 226,255" fill="#161f18"/>
+                <polygon points="240,250 247,228 254,250" fill="#141e16"/>
+                <!-- Group 3 -->
+                <polygon points="350,248 360,215 370,248" fill="#141e16"/>
+                <polygon points="380,252 388,225 396,252" fill="#161f18"/>
+                <polygon points="330,250 337,230 344,250" fill="#141e16"/>
+                <!-- Group 4 -->
+                <polygon points="520,242 532,205 544,242" fill="#141e16"/>
+                <polygon points="550,245 558,222 566,245" fill="#161f18"/>
+                <polygon points="500,244 508,225 516,244" fill="#141e16"/>
+                <!-- Group 5 -->
+                <polygon points="680,240 690,210 700,240" fill="#141e16"/>
+                <polygon points="710,243 720,218 730,243" fill="#161f18"/>
+                <polygon points="660,242 667,225 674,242" fill="#141e16"/>
+                <!-- Group 6 -->
+                <polygon points="840,235 850,208 860,235" fill="#141e16"/>
+                <polygon points="870,238 878,218 886,238" fill="#161f18"/>
+                <polygon points="820,237 828,220 836,237" fill="#141e16"/>
+                <!-- Group 7 -->
+                <polygon points="1000,238 1012,205 1024,238" fill="#141e16"/>
+                <polygon points="1030,240 1038,220 1046,240" fill="#161f18"/>
+                <polygon points="980,240 988,222 996,240" fill="#141e16"/>
+                <!-- Group 8 -->
+                <polygon points="1160,238 1170,212 1180,238" fill="#141e16"/>
+                <polygon points="1190,240 1198,220 1206,240" fill="#161f18"/>
+                <polygon points="1140,240 1148,224 1156,240" fill="#141e16"/>
+                <!-- Group 9 -->
+                <polygon points="1320,235 1330,210 1340,235" fill="#141e16"/>
+                <polygon points="1350,237 1358,220 1366,237" fill="#161f18"/>
+                <polygon points="1300,237 1308,222 1316,237" fill="#141e16"/>
+                <polygon points="1400,236 1410,215 1420,236" fill="#141e16"/>
+
+                <!-- Foreground ground -->
+                <path d="M0,265 Q360,255 720,262 Q1080,268 1440,258 L1440,320 L0,320 Z" fill="url(#ground)"/>
+            </svg>
+        </div>
     </div>
 
-    <section id="services">
-        <p class="section-title">What We Do</p>
-        <h2 class="section-heading">Services</h2>
-        <p class="section-text">DocForge provides comprehensive legal document drafting services tailored to your needs. We combine legal expertise with modern efficiency to deliver documents you can trust.</p>
+    <div class="services-section" id="services">
+        <div class="services-inner">
+            <p class="section-label">What We Forge</p>
+            <h2 class="section-heading">Services</h2>
+            <p class="section-text">From drafting to generation to final polish &mdash; we handle the detail work so your firm can focus on your clients.</p>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="icon">&#9998;</div>
-                <h3>Document Drafting</h3>
-                <p>Custom legal documents crafted with precision, from operating agreements and contracts to corporate filings and compliance documents.</p>
-            </div>
-            <div class="service-card">
-                <div class="icon">&#9881;</div>
-                <h3>Document Automation</h3>
-                <p>Streamlined document generation workflows that save time and reduce errors. We build systems that scale with your business.</p>
-            </div>
-            <div class="service-card">
-                <div class="icon">&#128269;</div>
-                <h3>Review &amp; Analysis</h3>
-                <p>Thorough review of existing documents to identify issues, ensure compliance, and recommend improvements.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Legal Document Drafting</h3>
+                    <p>Expert drafting of estate planning documents, operating agreements, trusts, probate filings, and more. We work directly within your workflows to deliver accurate, ready-to-use documents.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Trustate Document Generation</h3>
+                    <p>We know Trustate inside and out. From running the drafting question sets to generating complete document packages, we handle the entire generation process so your team doesn't have to.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Quality Review &amp; Polish</h3>
+                    <p>Every document gets a final review before it reaches your desk. We check formatting, consistency, and presentation to make sure everything looks polished, professional, and client-ready.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Matter Sync &amp; Data Transfer</h3>
+                    <p>No matter what intake platform your firm uses &mdash; Decision Vault, Clio, Wealth Counsel, or others &mdash; we can work with your data sheets and sync matters into Trustate seamlessly. No bottlenecks, nothing lost in translation.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <div class="divider"></div>
+    <div class="divider">
+        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Anvil shape -->
+            <rect x="8" y="14" width="24" height="4" rx="1"/>
+            <rect x="12" y="10" width="16" height="5" rx="1"/>
+            <rect x="4" y="17" width="32" height="3" rx="1"/>
+            <rect x="14" y="20" width="12" height="4" rx="1"/>
+        </svg>
+    </div>
+
+    <div class="tools-section" id="tools">
+        <div class="tools-inner">
+            <p class="section-label">Platforms We Work With</p>
+            <h2 class="section-heading">Your Tools. Our Expertise.</h2>
+            <p class="section-text" style="margin: 0 auto 2rem;">We generate documents in Trustate and work with data from virtually any legal intake platform your firm uses. Whatever your tech stack looks like, we can work with it.</p>
+
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <a href="https://www.trustate.com" target="_blank" rel="noopener" class="tool-badge">Trustate</a>
+                    <div class="tool-desc">Document Generation</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-badge">Legal Intake Platforms</div>
+                    <div class="tool-desc">Decision Vault, Clio &amp; More</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">
+        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="14" width="24" height="4" rx="1"/>
+            <rect x="12" y="10" width="16" height="5" rx="1"/>
+            <rect x="4" y="17" width="32" height="3" rx="1"/>
+            <rect x="14" y="20" width="12" height="4" rx="1"/>
+        </svg>
+    </div>
+
+    <div class="process-section">
+        <div class="process-inner">
+            <p class="section-label" style="text-align:center;">The Process</p>
+            <h2 class="section-heading" style="text-align:center;">From Matter to Masterpiece</h2>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Add Us to Your Account</h4>
+                    <p>Invite <strong>Drafter@DocForge.com</strong> to a seat on your Trustate account. We work inside your environment &mdash; your data never leaves your platform.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Assign Us a Matter</h4>
+                    <p>Point us to the matter in Trustate. All client data stays securely within your account &mdash; we simply access what we need to draft.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>We Draft &amp; Polish</h4>
+                    <p>We generate the documents, review formatting, and make sure everything is accurate, consistent, and client-ready.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>You Deliver</h4>
+                    <p>Clean, professional documents ready for your client's signature. That's it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">
+        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="14" width="24" height="4" rx="1"/>
+            <rect x="12" y="10" width="16" height="5" rx="1"/>
+            <rect x="4" y="17" width="32" height="3" rx="1"/>
+            <rect x="14" y="20" width="12" height="4" rx="1"/>
+        </svg>
+    </div>
 
     <section id="about">
-        <p class="section-title">Who We Are</p>
+        <p class="section-label">Who We Are</p>
         <h2 class="section-heading">About DocForge</h2>
 
         <div class="about-content">
             <div>
-                <p class="section-text">DocForge, LLC is a Washington State legal document drafting company founded on the principle that precision and efficiency should go hand in hand. With a background in paralegal work and legal technology, we bring both the legal knowledge and the technical savvy to deliver documents that are accurate, professional, and built to last.</p>
-                <p class="section-text">We work with businesses, law firms, and individuals who need reliable document drafting without the overhead of a full legal department.</p>
+                <p class="section-text">DocForge is a team of paralegals and legal assistants with specialized knowledge in trusts, estates, and probate. We bring years of hands-on legal experience to the table, and we're <a href="https://www.trustate.com" target="_blank" rel="noopener">Trustate Certified</a> &mdash; trained directly by Trustate on their document generation platform. We know the law, and we know the software your firm uses to turn that knowledge into finished documents.</p>
+                <p class="section-text">Whether you need us to run a full document generation in Trustate, sync matters from your intake platform, or ensure documents look polished before they hit your client's desk, we're the extra hands your firm needs without the overhead of full-time hires. Based on Whidbey Island, WA, serving firms nationwide.</p>
             </div>
-            <div class="about-stats">
-                <div class="stat">
-                    <div class="number">WA</div>
-                    <div class="label">Based In</div>
+            <div class="about-highlights">
+                <div class="highlight">
+                    <div>
+                        <h4>Trusts, Estates &amp; Probate</h4>
+                        <p>Our team's core expertise. We speak the language and know the documents inside and out.</p>
+                    </div>
                 </div>
-                <div class="stat">
-                    <div class="number">LLC</div>
-                    <div class="label">Structure</div>
+                <div class="highlight">
+                    <div>
+                        <h4>Trustate Certified</h4>
+                        <p>Trained by Trustate on their document generation platform. Expert-level knowledge of drafting question sets, templates, data keys, and document packages.</p>
+                    </div>
                 </div>
-                <div class="stat">
-                    <div class="number">24/7</div>
-                    <div class="label">Availability</div>
-                </div>
-                <div class="stat">
-                    <div class="number">100%</div>
-                    <div class="label">Dedication</div>
+                <div class="highlight">
+                    <div>
+                        <h4>Your Extended Team</h4>
+                        <p>We plug into your existing workflows. No onboarding headaches, no learning curve. Just results.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="divider"></div>
+    <div id="contact" class="contact-section">
+        <div class="contact-inner">
+            <p class="section-label">Let's Work Together</p>
+            <h2 class="section-heading">Ready to Forge Something Great?</h2>
+            <p class="section-text">Whether you need ongoing document support or help with a single project, we're here to make your drafting process easier.</p>
 
-    <section id="contact">
-        <p class="section-title">Let's Talk</p>
-        <h2 class="section-heading">Get in Touch</h2>
-        <p class="section-text" style="margin: 0 auto 2rem;">Ready to get started? Reach out and let's discuss how DocForge can help with your document needs.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="label">Email</div>
+                    <div class="value"><a href="mailto:info@docforge.com">info@docforge.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="label">Location</div>
+                    <div class="value">Oak Harbor, WA</div>
+                </div>
+                <div class="contact-item">
+                    <div class="label">Serving</div>
+                    <div class="value">Firms Nationwide</div>
+                </div>
+            </div>
 
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="label">Email</div>
-                <div class="value"><a href="mailto:nancy@docforge.com">nancy@docforge.com</a></div>
-            </div>
-            <div class="contact-item">
-                <div class="label">Location</div>
-                <div class="value">Oak Harbor, Washington</div>
-            </div>
-            <div class="contact-item">
-                <div class="label">Online</div>
-                <div class="value"><a href="https://www.docforge.com">www.docforge.com</a></div>
-            </div>
+            <a href="mailto:info@docforge.com" class="contact-cta">Get Started</a>
         </div>
-    </section>
+    </div>
 
     <footer>
-        &copy; 2026 DocForge, LLC. All rights reserved. | Oak Harbor, WA
+        &copy; 2026 DocForge, LLC &middot; Oak Harbor, Washington &middot; All rights reserved.
     </footer>
 
 </body>
