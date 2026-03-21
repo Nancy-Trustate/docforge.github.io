@@ -3,431 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platforms | DocForge, LLC</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Platforms - DocForge</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --charcoal: #1c1c1e;
-            --iron: #2a2a2e;
             --forge-orange: #d4734e;
-            --forge-glow: #e8956e;
-            --parchment: #faf8f5;
-            --snow: #ffffff;
-            --stone: #5a5a64;
-            --text: #2a2a2e;
-            --text-light: #5a5a64;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #12121f;
+            --light-text: #e8e0d4;
+            --muted-text: #a09888;
+            --card-bg: #222236;
+            --trustate-navy: #13306b;
+            --trustate-cyan: #38d4e9;
+            --trustate-magenta: #e53de2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            background-color: var(--darker-bg);
+            color: var(--light-text);
             font-family: 'Inter', sans-serif;
-            color: var(--text);
-            background: var(--snow);
             line-height: 1.6;
         }
 
-        html { scroll-behavior: smooth; }
-
+        /* Navigation */
         nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
+            background-color: var(--dark-bg);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(28, 28, 30, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 115, 78, 0.15);
+            position: sticky;
+            top: 0;
             z-index: 100;
+            border-bottom: 1px solid #333;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            font-family: 'Playfair Display';
             font-size: 1.5rem;
             font-weight: 700;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
             text-decoration: none;
         }
 
-        .logo .forge { color: var(--forge-orange); }
-        .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #a0a0a8;
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        nav a:hover, nav a.active {
+        .logo .forge {
             color: var(--forge-orange);
         }
 
-        main { padding-top: 80px; }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-        .page-header {
-            background: var(--charcoal);
-            color: var(--snow);
-            padding: 5rem 2rem 3rem;
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--forge-orange);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--light-text);
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: var(--dark-bg);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 2rem;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-8px, 8px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-7px, -7px);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+            padding: 6rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            border-bottom: 1px solid #333;
         }
 
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
-                radial-gradient(circle at 30% 50%, rgba(212, 115, 78, 0.04) 0%, transparent 2%),
-                radial-gradient(circle at 60% 30%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
-                radial-gradient(circle at 80% 70%, rgba(212, 115, 78, 0.04) 0%, transparent 2%);
-            pointer-events: none;
+        .hero h1 {
+            font-family: 'Playfair Display';
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
         }
 
-        .page-header-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted-text);
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .page-label {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--forge-glow);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
         }
 
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
+        /* Trustate Section */
+        .trustate-section {
+            padding: 4rem 2rem;
+            background-color: var(--darker-bg);
+        }
+
+        .trustate-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .trustate-card {
+            background: linear-gradient(135deg, var(--trustate-navy) 0%, #1a3d8c 100%);
+            border: 2px solid var(--trustate-cyan);
+            border-radius: 16px;
+            padding: 2.5rem 3rem;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(56, 212, 233, 0.15);
+            position: relative;
+        }
+
+        .trustate-badge {
+            display: inline-block;
+            background-color: var(--trustate-cyan);
+            color: var(--trustate-navy);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trustate-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .trustate-wordmark {
+            font-family: 'Inter', sans-serif;
             font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            letter-spacing: -0.5px;
+            line-height: 1;
         }
 
-        .page-header p {
-            font-size: 1rem;
-            color: #d0d0d8;
-            line-height: 1.8;
-            text-align: justify;
+        .trustate-wordmark .tru {
+            color: var(--trustate-cyan);
         }
 
-        .gradient-fade {
-            height: 60px;
-            background: linear-gradient(to bottom, var(--charcoal), var(--parchment));
+        .trustate-wordmark .state {
+            color: #ffffff;
         }
 
-        section {
-            padding: 3rem 2rem;
-        }
-
-        .core-platform-section {
-            background: var(--parchment);
-            text-align: center;
-        }
-
-        .core-platform-card {
-            background: var(--charcoal);
-            border: 2px solid var(--forge-orange);
-            padding: 3rem 2rem;
-            border-radius: 0.3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            color: var(--snow);
-        }
-
-        .core-platform-label {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: var(--forge-glow);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .core-platform-card h2 {
-            font-family: 'Playfair Display', serif;
+        .trustate-card h2 {
+            font-family: 'Playfair Display';
             font-size: 2rem;
+            color: var(--trustate-cyan);
             margin-bottom: 1rem;
+            display: none;
         }
 
-        .core-platform-card h2 a {
-            color: var(--forge-glow);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .core-platform-card h2 a:hover {
-            color: var(--snow);
-        }
-
-        .core-platform-card p {
-            font-size: 1rem;
-            color: #d0d0d8;
+        .trustate-card p {
+            color: #e8e0d4;
             line-height: 1.8;
-            text-align: justify;
+            font-size: 0.95rem;
         }
 
-        .platform-categories {
-            background: var(--parchment);
+        /* Platform Sections */
+        .platforms-section {
+            padding: 4rem 2rem;
+            background-color: var(--darker-bg);
+            border-top: 1px solid #333;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display';
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .platforms-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .platform-card {
-            background: var(--snow);
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: 0.3rem;
-            border-top: 3px solid var(--forge-orange);
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            border-color: var(--forge-orange);
+            box-shadow: 0 8px 24px rgba(212, 115, 78, 0.15);
+            transform: translateY(-4px);
         }
 
         .platform-card h3 {
+            font-family: 'Playfair Display';
             font-size: 1.3rem;
-            color: var(--text);
-            margin-bottom: 1rem;
+            color: var(--forge-orange);
+            margin-bottom: 0.8rem;
         }
 
         .platform-card p {
+            color: var(--muted-text);
             font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            text-align: justify;
+            line-height: 1.7;
         }
 
-        .platform-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .tag {
-            background: var(--parchment);
-            padding: 0.4rem 0.8rem;
-            border-radius: 0.2rem;
-            font-size: 0.85rem;
-            color: var(--text);
-            border: 1px solid #f0f0f0;
-        }
-
-        .drafting-tools-section {
-            background: var(--snow);
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 2rem;
+            background-color: var(--dark-bg);
             text-align: center;
+            border-top: 1px solid #333;
         }
 
-        .drafting-tools-card {
-            background: var(--parchment);
-            padding: 2rem;
-            border-radius: 0.3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .drafting-tools-card h3 {
-            font-family: 'Playfair Display', serif;
+        .cta-content h2 {
+            font-family: 'Playfair Display';
             font-size: 1.8rem;
-            color: var(--text);
+            color: var(--light-text);
             margin-bottom: 1rem;
         }
 
-        .drafting-tools-card p {
+        .cta-content p {
+            color: var(--muted-text);
+            margin-bottom: 2rem;
             font-size: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        .divider {
-            display: flex;
-            justify-content: center;
-            padding: 3rem 0;
-            background: var(--snow);
-        }
-
-        .divider svg {
-            width: 60px;
-            height: 36px;
-            fill: var(--forge-orange);
-            opacity: 0.3;
-        }
-
-        .final-section {
-            background: var(--parchment);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .final-section p {
-            font-size: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        .page-cta {
-            background: var(--charcoal);
-            color: var(--snow);
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-cta::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(232, 149, 110, 0.08) 0%, transparent 15%),
-                radial-gradient(circle at 80% 80%, rgba(212, 115, 78, 0.06) 0%, transparent 15%);
-            pointer-events: none;
-        }
-
-        .page-cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .page-cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
         }
 
         .cta-button {
-            background: var(--forge-orange);
-            color: var(--snow);
-            padding: 0.9rem 2.2rem;
+            background-color: var(--forge-orange);
+            color: white;
+            padding: 0.75rem 2rem;
             border: none;
-            border-radius: 0.3rem;
-            font-size: 0.95rem;
+            border-radius: 6px;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
             cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background: var(--forge-glow);
+            background-color: #c65d3f;
             transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(212, 115, 78, 0.25);
         }
 
-        footer {
-            background: var(--iron);
-            color: #a0a0a8;
-            text-align: center;
+        /* Wealthdocx Note */
+        .wealthdocx-note {
             padding: 2rem;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(212, 115, 78, 0.1);
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--forge-orange);
+            border-radius: 6px;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: center;
         }
 
-        /* Modal Styles */
+        .wealthdocx-note p {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        /* Modal */
         .modal-overlay {
-            display: none;
             position: fixed;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(28, 28, 30, 0.7);
-            backdrop-filter: blur(5px);
-            z-index: 200;
-            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
-        .modal-overlay.active { display: flex; }
+        .modal-overlay.active {
+            display: flex;
+        }
 
-        .modal-card {
-            background: var(--snow);
-            padding: 2.5rem;
-            border-radius: 0.3rem;
+        .modal {
+            background-color: var(--card-bg);
+            max-width: 480px;
             width: 90%;
-            max-width: 500px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
         }
 
         .modal-close {
-            float: right;
-            font-size: 2rem;
-            font-weight: 300;
-            color: var(--stone);
-            cursor: pointer;
-            border: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
             background: none;
-            padding: 0;
-            width: 2rem;
-            height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        .modal-close:hover { color: var(--forge-orange); }
-
-        .modal-content {
-            clear: both;
+        .modal-close:hover {
+            color: var(--forge-orange);
         }
 
-        .modal-content h2 {
-            font-size: 1.8rem;
-            color: var(--text);
+        .modal h2 {
+            font-family: 'Playfair Display';
+            font-size: 1.3rem;
+            color: var(--forge-orange);
             margin-bottom: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--muted-text);
+            margin-bottom: 3px;
+            font-weight: 600;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d0d0d8;
-            border-radius: 0.2rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.85rem;
+            background-color: var(--dark-bg);
+            border: 1px solid #333;
+            color: var(--light-text);
+            border-radius: 6px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text);
-            transition: border-color 0.3s;
+            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus,
@@ -435,271 +419,265 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--forge-orange);
-            box-shadow: 0 0 0 3px rgba(212, 115, 78, 0.1);
         }
 
-        .form-group textarea { resize: vertical; min-height: 100px; }
-
-        .form-note {
-            font-size: 0.8rem;
-            color: var(--stone);
-            margin-top: 1rem;
-            text-align: center;
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
         }
 
-        .modal-submit {
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+
+        .form-submit {
             width: 100%;
-            background: var(--forge-orange);
-            color: var(--snow);
-            padding: 0.9rem;
+            padding: 0.75rem;
+            background-color: var(--forge-orange);
+            color: white;
             border: none;
-            border-radius: 0.2rem;
-            font-size: 0.95rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 0.5rem;
+            transition: all 0.3s ease;
         }
 
-        .modal-submit:hover {
-            background: var(--forge-glow);
+        .form-submit:hover {
+            background-color: #c65d3f;
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(212, 115, 78, 0.25);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav { padding: 0.8rem 1.5rem; }
-            nav ul { gap: 1.2rem; }
-            nav a { font-size: 0.7rem; }
-
-            main { padding-top: 70px; }
-
-            .page-header { padding: 3.5rem 1.5rem 2rem; }
-            .page-header h1 { font-size: 2rem; }
-
-            section { padding: 2rem 1.5rem; }
-
-            .platform-categories { grid-template-columns: 1fr; }
-
-            .page-cta h2 { font-size: 1.8rem; }
-
-            .modal-card { padding: 1.5rem; }
-        }
-
-        @media (max-width: 480px) {
-            nav { padding: 0.6rem 1rem; }
-            nav ul { gap: 0.8rem; }
-            nav a { font-size: 0.65rem; }
-
-            .page-header { padding: 3rem 1rem 1.5rem; }
-            .page-header h1 { font-size: 1.5rem; }
-
-            section { padding: 1.5rem 1rem; }
-
-            .core-platform-card { padding: 1.5rem 1rem; }
-
-            .core-platform-card h2 { font-size: 1.5rem; }
-
-            .platform-card h3 { font-size: 1.1rem; }
-
-            .drafting-tools-card h3 { font-size: 1.5rem; }
-
-            .page-cta { padding: 2rem 1rem; }
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 2rem;
+            text-align: center;
+            color: var(--muted-text);
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
-        <a href="index.html" class="logo">
-            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                <defs><linearGradient id="nav-ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8956e"/><stop offset="100%" stop-color="#b85a3a"/></linearGradient></defs>
-                <circle cx="200" cy="200" r="155" fill="none" stroke="url(#nav-ring)" stroke-width="4.5"/>
-                <circle cx="200" cy="200" r="153" fill="rgba(212,115,78,0.04)"/>
-                <g transform="translate(200, 195) rotate(-30)">
-                    <rect x="-7" y="-15" width="14" height="155" rx="5" fill="#5a4a32"/>
-                    <rect x="-10" y="-18" width="20" height="8" rx="2" fill="#8a7a6a" opacity="0.7"/>
-                    <rect x="-45" y="-48" width="90" height="34" rx="5" fill="#d4734e"/>
-                    <rect x="-42" y="-45" width="84" height="9" rx="3" fill="#e8956e" opacity="0.35"/>
-                    <rect x="36" y="-48" width="14" height="34" rx="3" fill="#b85a3a"/>
-                    <path d="M-45,-38 L-62,-31 L-45,-24 Z" fill="#b85a3a"/>
-                </g>
-            </svg>
-            Doc<span class="forge">Forge</span>
-        </a>
-        <ul>
+        <a href="index.html" class="logo">Doc<span class="forge">Forge</span></a>
+        <ul class="nav-links">
             <li><a href="index.html#services">Services</a></li>
             <li><a href="documents.html">What We Draft</a></li>
             <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="platforms.html" class="active">Platforms</a></li>
+            <li><a href="platforms.html">Platforms</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
             <li><a href="apply.html">Apply</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
-    <main>
-        <div class="page-header">
-            <div class="page-header-content">
-                <p class="page-label">Built on Trustate</p>
-                <h1>Trustate Experts. Platform Fluent.</h1>
-                <p>We're Trustate Certified — trained directly on the platform. But we also know your firm's workflow doesn't start and end with Trustate. We bridge the gap between your existing tools and polished documents.</p>
-            </div>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Platforms We Work With</h1>
+        <p>Seamless integration with your existing tools and workflows.</p>
+    </section>
 
-        <div class="gradient-fade"></div>
-
-        <section class="core-platform-section">
-            <div class="core-platform-card">
-                <p class="core-platform-label">Our Core Platform</p>
-                <h2><a href="https://trustate.com" target="_blank">Trustate</a></h2>
-                <p>Document generation, drafting question sets, data keys, templates, and complete document packages. We know it inside and out.</p>
-            </div>
-        </section>
-
-        <section>
-            <div class="platform-categories">
-                <div class="platform-card">
-                    <h3>Intake & Data Platforms</h3>
-                    <p>We work with data from the tools your firm already uses to collect client information, asset inventories, and family details.</p>
-                    <div class="platform-tags">
-                        <span class="tag">Decision Vault</span>
-                        <span class="tag">LawMatics</span>
-                        <span class="tag">Clio Grow</span>
-                    </div>
+    <!-- Trustate Section -->
+    <section class="trustate-section">
+        <div class="trustate-container">
+            <div class="trustate-card">
+                <div class="trustate-badge">Core Platform</div>
+                <div class="trustate-logo-container">
+                    <span class="trustate-wordmark"><span class="tru">tru</span><span class="state">state</span></span>
                 </div>
-
-                <div class="platform-card">
-                    <h3>Case Management Systems</h3>
-                    <p>Whatever system your firm uses to manage matters, we can pull data sheets from it and sync into Trustate for generation.</p>
-                    <div class="platform-tags">
-                        <span class="tag">Clio Manage</span>
-                        <span class="tag">MyCase</span>
-                        <span class="tag">Smokeball</span>
-                        <span class="tag">PracticePanther</span>
-                        <span class="tag">CosmoLex</span>
-                        <span class="tag">Rocket Matter</span>
-                        <span class="tag">ActionStep</span>
-                        <span class="tag">Filevine</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="drafting-tools-section">
-            <div class="drafting-tools-card">
-                <h3>Already Drafting Elsewhere?</h3>
-                <p>If your firm currently uses Wealth Counsel / WealthDocx or another drafting tool and wants to transition to Trustate, we can help with migration and onboarding too.</p>
-            </div>
-        </section>
-
-        <div class="divider">
-            <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-                <rect x="8" y="14" width="24" height="4" rx="1"/>
-                <rect x="12" y="10" width="16" height="5" rx="1"/>
-                <rect x="4" y="17" width="32" height="3" rx="1"/>
-                <rect x="14" y="20" width="12" height="4" rx="1"/>
-            </svg>
-        </div>
-
-        <section class="final-section">
-            <p>Don't see your platform? No problem. If your firm uses a system we haven't listed, reach out — chances are we can work with it.</p>
-        </section>
-
-        <div class="page-cta">
-            <div class="page-cta-content">
-                <h2>Ready to Lighten Your Drafting Load?</h2>
-                <button class="cta-button" onclick="openModal()">Get Started</button>
+                <p>Our foundation. Every DocForge drafter is Trustate-certified. We draft directly within the Trustate platform, ensuring your documents meet the highest standards of accuracy and compliance.</p>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- CONTACT FORM MODAL -->
-    <div class="modal-overlay" id="contactModal">
-        <div class="modal-card">
+    <!-- Intake Platforms Section -->
+    <section class="platforms-section">
+        <h2 class="section-title">Intake Platforms</h2>
+        <div class="platforms-grid">
+            <div class="platform-card">
+                <h3>Decision Vault</h3>
+                <p>Streamlined client intake and questionnaire platform for estate planning firms.</p>
+            </div>
+            <div class="platform-card">
+                <h3>LawMatics</h3>
+                <p>Marketing automation and intake CRM built for law firms.</p>
+            </div>
+            <div class="platform-card">
+                <h3>Clio Grow</h3>
+                <p>Client intake and CRM solution that connects seamlessly with Clio Manage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Management Section -->
+    <section class="platforms-section">
+        <h2 class="section-title">Case Management</h2>
+        <div class="platforms-grid">
+            <div class="platform-card">
+                <h3>Clio Manage</h3>
+                <p>Industry-leading practice management with robust document management and workflows.</p>
+            </div>
+            <div class="platform-card">
+                <h3>MyCase</h3>
+                <p>All-in-one legal practice management with client portal and billing.</p>
+            </div>
+            <div class="platform-card">
+                <h3>Smokeball</h3>
+                <p>Automatic time tracking and deep document management for small firms.</p>
+            </div>
+            <div class="platform-card">
+                <h3>PracticePanther</h3>
+                <p>Intuitive practice management with powerful automation features.</p>
+            </div>
+            <div class="platform-card">
+                <h3>CosmoLex</h3>
+                <p>Built-in accounting and practice management in one platform.</p>
+            </div>
+            <div class="platform-card">
+                <h3>Rocket Matter</h3>
+                <p>Cloud-based practice management focused on productivity and profitability.</p>
+            </div>
+            <div class="platform-card">
+                <h3>ActionStep</h3>
+                <p>Workflow automation and practice management for growing firms.</p>
+            </div>
+            <div class="platform-card">
+                <h3>Filevine</h3>
+                <p>Document-heavy case management with advanced organization tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WealthDocx Note -->
+    <section class="platforms-section">
+        <div class="wealthdocx-note">
+            <p><strong>Transitioning from WealthDocx?</strong> We can help migrate your document workflows to modern platforms. Contact us to learn more.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Don't See Your Platform?</h2>
+            <p>We're always expanding our integrations. Let us know what you use.</p>
+            <button class="cta-button" onclick="openModal()">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
             <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div class="modal-content">
-                <h2>Get in Touch</h2>
-                <form action="https://formsubmit.co/info@docforge.com" method="POST">
-                    <input type="hidden" name="_subject" value="New DocForge Inquiry (from Platforms page)">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="hidden" name="_template" value="box">
-                    <input type="hidden" name="_honey" value="">
+            <h2>Get in Touch</h2>
+            <form action="https://formsubmit.co/info@docforge.com" method="POST">
+                <input type="hidden" name="_subject" value="New DocForge Inquiry from Platforms Page">
+                <input type="hidden" name="_captcha" value="false">
 
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="firm">Firm *</label>
-                        <input type="text" id="firm" name="firm" required>
-                    </div>
+                <div class="form-group">
+                    <label for="firm">Firm</label>
+                    <input type="text" id="firm" name="firm" required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
 
-                    <div class="form-group">
-                        <label for="package">Package Interest</label>
-                        <select id="package" name="package">
-                            <option value="">Select...</option>
-                            <option value="Standard $35-65">Standard ($35-$65)</option>
-                            <option value="Comprehensive $75-150">Comprehensive ($75-$150)</option>
-                            <option value="Complex $175-300">Complex ($175-$300)</option>
-                            <option value="Not sure">Not sure</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="package">Package Interest</label>
+                    <select id="package" name="package">
+                        <option value="">Select a package</option>
+                        <option value="Starter">Starter</option>
+                        <option value="Professional">Professional</option>
+                        <option value="Enterprise">Enterprise</option>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <label for="volume">Monthly Volume</label>
-                        <select id="volume" name="volume">
-                            <option value="">Select...</option>
-                            <option value="1-5">1-5 documents</option>
-                            <option value="6-10">6-10 documents</option>
-                            <option value="11-20">11-20 documents</option>
-                            <option value="20+">20+ documents</option>
-                            <option value="Just getting started">Just getting started</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="volume">Monthly Volume</label>
+                    <select id="volume" name="volume">
+                        <option value="">Select monthly volume</option>
+                        <option value="1-10">1-10 documents</option>
+                        <option value="11-50">11-50 documents</option>
+                        <option value="51-100">51-100 documents</option>
+                        <option value="100+">100+ documents</option>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Tell Us More</label>
-                        <textarea id="message" name="message" placeholder="Anything else we should know?"></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="message">Tell Us More</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
 
-                    <button type="submit" class="modal-submit">Send Inquiry</button>
-                    <p class="form-note">We'll respond within 1 business day.</p>
-                </form>
-            </div>
+                <button type="submit" class="form-submit">Send</button>
+            </form>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        &copy; 2026 DocForge, LLC &middot; Oak Harbor, Washington &middot; Woman Owned &middot; Military Spouse Operated &middot; All rights reserved.
+        <p>&copy; 2026 DocForge, LLC.</p>
     </footer>
 
     <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Modal Functions
         function openModal() {
-            document.getElementById('contactModal').classList.add('active');
+            document.getElementById('modalOverlay').classList.add('active');
         }
 
         function closeModal() {
-            document.getElementById('contactModal').classList.remove('active');
+            document.getElementById('modalOverlay').classList.remove('active');
         }
 
-        document.getElementById('contactModal').addEventListener('click', function(e) {
+        // Close modal when clicking overlay
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
+        // Close modal on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
