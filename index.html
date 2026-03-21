@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocForge, LLC | Legal Document Drafting & Trustate Services</title>
-    <meta name="description" content="DocForge provides professional legal document drafting and Trustate document generation services for law firms. Trustate Certified paralegals and legal assistants.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -23,13 +22,14 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--parchment);
+            font-family: 'Inter', sans-serif;
             color: var(--text);
-            line-height: 1.7;
+            background: var(--snow);
+            line-height: 1.6;
         }
 
-        /* NAV */
+        html { scroll-behavior: smooth; }
+
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -55,7 +55,6 @@
         }
 
         .logo .forge { color: var(--forge-orange); }
-
         .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
 
         nav ul {
@@ -74,496 +73,414 @@
             transition: color 0.3s;
         }
 
-        nav a:hover, nav a.active { color: var(--forge-orange); }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 1.5rem 2rem;
-            background: #141416;
-            color: rgba(255,255,255,0.3);
-            font-size: 0.8rem;
+        nav a:hover, nav a.active {
+            color: var(--forge-orange);
         }
 
-        /* HERO */
+        main { padding-top: 80px; }
+
         .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             background: var(--charcoal);
-            padding: 8rem 2rem 6rem;
+            color: var(--snow);
             text-align: center;
+            padding: 2rem;
             position: relative;
             overflow: hidden;
-            margin-top: 60px;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
             background:
-                radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.25), transparent),
-                radial-gradient(1.5px 1.5px at 35% 10%, rgba(255,255,255,0.35), transparent),
-                radial-gradient(1px 1px at 60% 32%, rgba(255,255,255,0.2), transparent),
-                radial-gradient(1px 1px at 82% 22%, rgba(255,255,255,0.3), transparent),
-                radial-gradient(1.2px 1.2px at 45% 55%, rgba(255,255,255,0.15), transparent),
-                radial-gradient(1px 1px at 78% 70%, rgba(255,255,255,0.2), transparent);
-            z-index: 0;
+                radial-gradient(circle at 10% 20%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
+                radial-gradient(circle at 30% 50%, rgba(212, 115, 78, 0.04) 0%, transparent 2%),
+                radial-gradient(circle at 60% 30%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
+                radial-gradient(circle at 80% 70%, rgba(212, 115, 78, 0.04) 0%, transparent 2%),
+                radial-gradient(circle at 20% 80%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
+                radial-gradient(circle at 70% 60%, rgba(212, 115, 78, 0.04) 0%, transparent 2%),
+                radial-gradient(circle at 40% 40%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
+                radial-gradient(circle at 90% 20%, rgba(212, 115, 78, 0.04) 0%, transparent 2%),
+                radial-gradient(circle at 15% 60%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
+                radial-gradient(circle at 75% 85%, rgba(212, 115, 78, 0.04) 0%, transparent 2%),
+                radial-gradient(circle at 50% 75%, rgba(232, 149, 110, 0.03) 0%, transparent 2%),
+                radial-gradient(circle at 35% 15%, rgba(212, 115, 78, 0.04) 0%, transparent 2%);
+            pointer-events: none;
         }
 
-        .hero-inner {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .hero > * { position: relative; z-index: 1; }
 
-        .hero svg {
+        .hero-logo {
             width: 120px;
             height: 120px;
-            margin: 0 auto 1.5rem;
-            display: block;
+            margin-bottom: 2rem;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-size: 4rem;
             font-weight: 700;
-            color: var(--parchment);
             margin-bottom: 0.5rem;
             line-height: 1.1;
         }
 
-        .hero h1 .accent { color: var(--forge-orange); }
+        .hero .accent { color: var(--forge-orange); }
 
-        .hero .tagline {
+        .hero-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-style: italic;
             color: var(--forge-glow);
-            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
 
-        .hero .sub-tagline {
-            color: #a0a0a8;
+        .hero-subtitle {
             font-size: 1rem;
-            line-height: 1.7;
+            color: #c0c0c8;
+            max-width: 600px;
             margin-bottom: 2rem;
-            max-width: 580px;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.8;
         }
 
-        /* CTA BUTTON */
-        .cta {
-            display: inline-block;
-            padding: 0.85rem 2rem;
+        .cta-button {
             background: var(--forge-orange);
-            color: white;
+            color: var(--snow);
+            padding: 0.9rem 2.2rem;
             border: none;
-            font-family: 'Inter', sans-serif;
+            border-radius: 0.3rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 3px;
+            letter-spacing: 0.5px;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
+            display: inline-block;
         }
 
-        .cta:hover {
+        .cta-button:hover {
             background: var(--forge-glow);
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(212,115,78,0.3);
+            box-shadow: 0 12px 20px rgba(212, 115, 78, 0.25);
         }
 
-        /* SERVICES SECTION */
-        .services {
-            background: var(--snow);
+        section {
             padding: 5rem 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-label {
-            font-size: 0.72rem;
-            letter-spacing: 3px;
             text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
             color: var(--forge-orange);
             font-weight: 600;
-            margin-bottom: 0.6rem;
-            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .section-header h2 {
+        .section-heading {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--charcoal);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text);
         }
+
+        .section-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            text-align: justify;
+        }
+
+        .services-section { background: var(--snow); }
+        .services-section .section-heading { color: var(--text); }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
+            margin-top: 2rem;
         }
 
         .service-card {
-            padding: 2rem;
             background: var(--parchment);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 4px;
+            padding: 2rem;
+            border-radius: 0.3rem;
+            border-left: 3px solid transparent;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .service-card:hover {
-            border-left: 3px solid var(--forge-orange);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-left-color: var(--forge-orange);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .service-card h3 {
-            font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--charcoal);
             margin-bottom: 0.8rem;
+            color: var(--text);
         }
 
         .service-card p {
-            color: var(--text-light);
             font-size: 0.95rem;
-            line-height: 1.7;
+            color: var(--text-light);
             text-align: justify;
         }
 
-        /* ANVIL DIVIDER */
         .divider {
-            text-align: center;
-            padding: 2.5rem 0;
-            position: relative;
+            display: flex;
+            justify-content: center;
+            padding: 3rem 0;
+            background: var(--snow);
         }
 
         .divider svg {
-            width: 40px;
-            height: 24px;
+            width: 60px;
+            height: 36px;
             fill: var(--forge-orange);
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
-        .divider::before,
-        .divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: calc(50% - 40px);
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(212, 115, 78, 0.15), transparent);
-        }
-        .divider::before { left: 0; }
-        .divider::after { right: 0; }
-
-        /* PLATFORMS SECTION */
-        .platforms {
+        .platforms-section {
             background: var(--parchment);
-            padding: 5rem 2rem;
-            text-align: center;
         }
 
-        .platforms .section-header {
-            margin-bottom: 2rem;
-        }
-
-        .platforms p {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+        .platforms-content {
             max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.7rem 1.5rem;
-            background: var(--snow);
-            border: 1px solid rgba(0,0,0,0.12);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .badge:hover {
-            border-color: var(--forge-orange);
-            color: var(--forge-orange);
-        }
-
-        /* PROCESS SECTION */
-        .process {
-            background: var(--snow);
-            padding: 5rem 2rem;
             text-align: center;
         }
 
-        .process-steps {
+        .platforms-content .section-text {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .platforms-link {
+            color: var(--forge-orange);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .platforms-link:hover { color: var(--forge-glow); }
+
+        .process-section { background: var(--snow); }
+
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .process-step {
-            padding: 1.5rem;
             text-align: center;
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            background: var(--charcoal);
+            color: var(--forge-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
         }
 
         .process-step h3 {
-            font-family: 'Playfair Display', serif;
             font-size: 1rem;
-            font-weight: 700;
-            color: var(--charcoal);
             margin-bottom: 0.8rem;
+            color: var(--text);
         }
 
         .process-step p {
-            color: var(--text-light);
             font-size: 0.9rem;
-            line-height: 1.6;
+            color: var(--text-light);
             text-align: justify;
         }
 
-        /* ABOUT SECTION */
-        .about {
-            background: var(--parchment);
-            padding: 5rem 2rem;
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+        .about-section { background: var(--parchment); }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .about-text h3:first-child {
-            margin-top: 0;
+            margin-top: 2rem;
         }
 
         .about-text p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.8;
             margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
             text-align: justify;
         }
 
-        .highlights {
+        .highlight-cards {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .highlight-card {
-            padding: 1.5rem;
             background: var(--snow);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-left: 3px solid var(--forge-orange);
-            border-radius: 4px;
+            padding: 1.5rem;
+            border-radius: 0.3rem;
+            border-top: 2px solid var(--forge-orange);
         }
 
         .highlight-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 0.4rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
         .highlight-card p {
+            font-size: 0.9rem;
             color: var(--text-light);
-            font-size: 0.85rem;
-            line-height: 1.6;
-            margin: 0;
             text-align: justify;
         }
 
-        /* CONTACT SECTION */
-        .contact {
+        .contact-section {
             background: var(--charcoal);
-            padding: 5rem 2rem;
-            text-align: center;
+            color: var(--snow);
             position: relative;
             overflow: hidden;
         }
 
-        .contact::before {
+        .contact-section::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
             background:
-                radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.25), transparent),
-                radial-gradient(1.5px 1.5px at 40% 12%, rgba(255,255,255,0.35), transparent),
-                radial-gradient(1px 1px at 65% 28%, rgba(255,255,255,0.2), transparent),
-                radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.3), transparent);
-            z-index: 0;
+                radial-gradient(circle at 20% 50%, rgba(232, 149, 110, 0.08) 0%, transparent 15%),
+                radial-gradient(circle at 80% 80%, rgba(212, 115, 78, 0.06) 0%, transparent 15%);
+            pointer-events: none;
         }
 
-        .contact-inner {
+        .contact-content {
             position: relative;
             z-index: 1;
+            text-align: center;
             max-width: 700px;
             margin: 0 auto;
         }
 
-        .contact h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--parchment);
-            margin-bottom: 1rem;
-        }
-
-        .contact > .section-label {
-            color: var(--forge-glow);
-        }
-
-        .contact p {
-            color: #a0a0a8;
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
+        .contact-content .section-label { color: var(--forge-glow); }
+        .contact-content .section-heading { color: var(--snow); }
+        .contact-content .section-text { color: #d0d0d8; }
 
         .contact-items {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
             text-align: center;
         }
 
-        .contact-item strong {
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
             color: var(--forge-glow);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 0.4rem;
         }
 
         .contact-item p {
-            color: #a0a0a8;
             font-size: 0.95rem;
-            margin: 0;
+            color: #c0c0c8;
         }
 
-        /* MODAL */
-        .modal {
+        .contact-cta {
+            margin-top: 2rem;
+        }
+
+        footer {
+            background: var(--iron);
+            color: #a0a0a8;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(212, 115, 78, 0.1);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.7);
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 28, 30, 0.7);
+            backdrop-filter: blur(5px);
             z-index: 200;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            overflow-y: auto;
         }
 
-        .modal.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
 
-        .modal-content {
+        .modal-card {
             background: var(--snow);
-            border-radius: 6px;
             padding: 2.5rem;
-            max-width: 600px;
-            width: 100%;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
+            border-radius: 0.3rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
+            float: right;
+            font-size: 2rem;
+            font-weight: 300;
             color: var(--stone);
             cursor: pointer;
-            transition: color 0.3s;
+            border: none;
+            background: none;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .modal-close:hover {
-            color: var(--charcoal);
+        .modal-close:hover { color: var(--forge-orange); }
+
+        .modal-content {
+            clear: both;
         }
 
-        .modal h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 0.4rem;
-        }
-
-        .modal .form-subtitle {
-            font-size: 0.88rem;
-            color: var(--text-light);
+        .modal-content h2 {
+            font-size: 1.8rem;
+            color: var(--text);
             margin-bottom: 1.5rem;
-            line-height: 1.6;
         }
 
-        .form-group { margin-bottom: 1.2rem; }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
 
         .form-group label {
             display: block;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: var(--stone);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text);
             margin-bottom: 0.4rem;
         }
 
@@ -571,13 +488,12 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 0.7rem 0.9rem;
-            border: 1px solid rgba(0,0,0,0.12);
-            border-radius: 3px;
+            padding: 0.75rem;
+            border: 1px solid #d0d0d8;
+            border-radius: 0.2rem;
             font-family: 'Inter', sans-serif;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--text);
-            background: var(--snow);
             transition: border-color 0.3s;
         }
 
@@ -586,71 +502,82 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--forge-orange);
-            box-shadow: 0 0 0 3px rgba(212,115,78,0.1);
+            box-shadow: 0 0 0 3px rgba(212, 115, 78, 0.1);
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
+        .form-group textarea { resize: vertical; min-height: 100px; }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--stone);
+            margin-top: 1rem;
+            text-align: center;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-submit {
-            display: block;
+        .modal-submit {
             width: 100%;
-            padding: 0.85rem;
             background: var(--forge-orange);
-            color: white;
+            color: var(--snow);
+            padding: 0.9rem;
             border: none;
-            font-family: 'Inter', sans-serif;
+            border-radius: 0.2rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 3px;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 0.5rem;
         }
 
-        .form-submit:hover {
+        .modal-submit:hover {
             background: var(--forge-glow);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(212,115,78,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(212, 115, 78, 0.25);
         }
 
-        /* RESPONSIVE */
+        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 0.8rem 1.2rem;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            nav ul {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav a { font-size: 0.72rem; }
-            .hero { padding: 6rem 2rem 4rem; margin-top: 140px; }
+            nav { padding: 0.8rem 1.5rem; }
+            nav ul { gap: 1.2rem; }
+            nav a { font-size: 0.7rem; }
+
+            main { padding-top: 70px; }
+
+            .hero h1 { font-size: 2.5rem; }
+            .hero-tagline { font-size: 1.1rem; }
+
+            section { padding: 3rem 1.5rem; }
+
+            .section-heading { font-size: 1.8rem; }
+
             .services-grid { grid-template-columns: 1fr; }
-            .process-steps { grid-template-columns: 1fr; }
+
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+
             .about-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .contact-items { gap: 1.5rem; }
-            .modal-content { padding: 2rem; }
+
+            .contact-items { grid-template-columns: 1fr; }
+
+            .modal-card { padding: 1.5rem; }
         }
 
-        html { scroll-behavior: smooth; }
+        @media (max-width: 480px) {
+            nav { padding: 0.6rem 1rem; }
+            nav ul { gap: 0.8rem; }
+            nav a { font-size: 0.65rem; }
+
+            .hero h1 { font-size: 1.8rem; }
+            .hero-tagline { font-size: 1rem; }
+            .hero-logo { width: 80px; height: 80px; }
+
+            section { padding: 2rem 1rem; }
+
+            .section-heading { font-size: 1.5rem; }
+
+            .process-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="logo">
             <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -672,303 +599,263 @@
             <li><a href="index.html#services">Services</a></li>
             <li><a href="documents.html">What We Draft</a></li>
             <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="platforms.html">Platforms</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
             <li><a href="apply.html">Apply</a></li>
         </ul>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-inner">
-            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <main>
+        <!-- HERO -->
+        <div class="hero">
+            <svg viewBox="0 0 400 400" class="hero-logo" xmlns="http://www.w3.org/2000/svg">
                 <defs><linearGradient id="hero-ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8956e"/><stop offset="100%" stop-color="#b85a3a"/></linearGradient></defs>
-                <circle cx="200" cy="200" r="155" fill="none" stroke="url(#hero-ring)" stroke-width="4.5"/>
-                <circle cx="200" cy="200" r="153" fill="rgba(212,115,78,0.04)"/>
+                <circle cx="200" cy="200" r="155" fill="none" stroke="url(#hero-ring)" stroke-width="8"/>
+                <circle cx="200" cy="200" r="150" fill="rgba(232, 149, 110, 0.05)"/>
                 <g transform="translate(200, 195) rotate(-30)">
+                    <!-- Handle -->
                     <rect x="-7" y="-15" width="14" height="155" rx="5" fill="#5a4a32"/>
-                    <line x1="-3" y1="0" x2="-3" y2="125" stroke="#4a3a22" stroke-width="0.5" opacity="0.6"/>
-                    <line x1="3" y1="-8" x2="3" y2="120" stroke="#4a3a22" stroke-width="0.5" opacity="0.6"/>
-                    <rect x="-10" y="-18" width="20" height="8" rx="2" fill="#8a7a6a" opacity="0.7"/>
-                    <circle cx="-10" cy="85" r="1.5" fill="#e8956e" opacity="0.8"/>
-                    <circle cx="-10" cy="98" r="1.5" fill="#e8956e" opacity="0.8"/>
-                    <circle cx="-10" cy="111" r="1.5" fill="#e8956e" opacity="0.8"/>
-                    <circle cx="-10" cy="124" r="1.5" fill="#e8956e" opacity="0.8"/>
-                    <circle cx="10" cy="102" r="1.2" fill="#e8956e" opacity="0.7"/>
+                    <!-- Grip wraps -->
+                    <rect x="-11" y="-8" width="22" height="3" rx="1" fill="#8a7a6a" opacity="0.6"/>
+                    <rect x="-11" y="15" width="22" height="3" rx="1" fill="#8a7a6a" opacity="0.6"/>
+                    <rect x="-11" y="38" width="22" height="3" rx="1" fill="#8a7a6a" opacity="0.6"/>
+                    <rect x="-11" y="61" width="22" height="3" rx="1" fill="#8a7a6a" opacity="0.6"/>
+                    <!-- Grain lines -->
+                    <line x1="-6" y1="0" x2="-6" y2="80" stroke="#8a7a6a" stroke-width="0.5" opacity="0.4"/>
+                    <line x1="0" y1="0" x2="0" y2="80" stroke="#8a7a6a" stroke-width="0.5" opacity="0.4"/>
+                    <line x1="6" y1="0" x2="6" y2="80" stroke="#8a7a6a" stroke-width="0.5" opacity="0.4"/>
+                    <!-- Head -->
                     <rect x="-45" y="-48" width="90" height="34" rx="5" fill="#d4734e"/>
                     <rect x="-42" y="-45" width="84" height="9" rx="3" fill="#e8956e" opacity="0.35"/>
+                    <!-- Claw -->
                     <rect x="36" y="-48" width="14" height="34" rx="3" fill="#b85a3a"/>
                     <path d="M-45,-38 L-62,-31 L-45,-24 Z" fill="#b85a3a"/>
-                    <circle cx="49" cy="-43" r="1.5" fill="#e8956e" opacity="0.9"/>
-                    <circle cx="49" cy="-35" r="1.3" fill="#e8956e" opacity="0.85"/>
-                    <circle cx="49" cy="-27" r="1.2" fill="#e8956e" opacity="0.8"/>
-                    <circle cx="54" cy="-32" r="1.4" fill="#e8956e" opacity="0.75"/>
-                    <circle cx="44" cy="-30" r="1.1" fill="#e8956e" opacity="0.7"/>
+                    <!-- Spark dots -->
+                    <circle cx="-55" cy="-35" r="2.5" fill="#e8956e" opacity="0.8"/>
+                    <circle cx="-65" cy="-45" r="1.8" fill="#e8956e" opacity="0.6"/>
+                    <circle cx="-70" cy="-25" r="2" fill="#e8956e" opacity="0.7"/>
+                    <circle cx="55" cy="-38" r="2.5" fill="#e8956e" opacity="0.8"/>
+                    <circle cx="68" cy="-50" r="1.8" fill="#e8956e" opacity="0.6"/>
                 </g>
             </svg>
             <h1>Doc<span class="accent">Forge</span></h1>
-            <p class="tagline">Documents forged with precision. Trusted by firms.</p>
-            <p class="sub-tagline">A team of paralegals and legal assistants with deep trusts, estates, and probate expertise &mdash; and Trustate Certified to generate your documents fast.</p>
-            <button class="cta" onclick="openModal()">Work With Us</button>
+            <p class="hero-tagline">Documents forged with precision. Trusted by firms.</p>
+            <p class="hero-subtitle">A team of paralegals and legal assistants with deep trusts, estates, and probate expertise — and Trustate Certified to generate your documents fast.</p>
+            <button class="cta-button" onclick="openModal()">Work With Us</button>
         </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section class="services" id="services">
-        <div class="section-header">
-            <span class="section-label">What We Forge</span>
-            <h2>Services</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Legal Document Drafting</h3>
-                <p>Expert drafting of estate planning documents, operating agreements, trusts, probate filings, and more. We work directly within your workflows to deliver accurate, ready-to-use documents.</p>
-            </div>
-            <div class="service-card">
-                <h3>Trustate Document Generation</h3>
-                <p>We know Trustate inside and out. From running the drafting question sets to generating complete document packages, we handle the entire generation process so your team doesn't have to.</p>
-            </div>
-            <div class="service-card">
-                <h3>Quality Review &amp; Polish</h3>
-                <p>Every document gets a final review before it reaches your desk. We check formatting, consistency, and presentation to make sure everything looks polished, professional, and client-ready.</p>
-            </div>
-            <div class="service-card">
-                <h3>Matter Sync &amp; Data Transfer</h3>
-                <p>No matter what intake platform your firm uses &mdash; Decision Vault, Clio, Wealth Counsel, or others &mdash; we can work with your data sheets and sync matters into Trustate seamlessly. No bottlenecks, nothing lost in translation.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ANVIL DIVIDER -->
-    <div class="divider" style="background: var(--snow);">
-        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="14" width="24" height="4" rx="1"/>
-            <rect x="12" y="10" width="16" height="5" rx="1"/>
-            <rect x="4" y="17" width="32" height="3" rx="1"/>
-            <rect x="14" y="20" width="12" height="4" rx="1"/>
-        </svg>
-    </div>
-
-    <!-- PLATFORMS -->
-    <section class="platforms" id="tools">
-        <div class="section-header">
-            <span class="section-label">Built on Trustate</span>
-            <h2>Trustate Experts. Platform Fluent.</h2>
-        </div>
-        <p style="text-align:justify; max-width:700px;">We're <a href="https://www.trustate.com" target="_blank" rel="noopener" style="color:var(--forge-orange);text-decoration:none;font-weight:600;">Trustate Certified</a> &mdash; trained directly by Trustate on their document generation platform. That's our home base. But we also know that your firm's workflow doesn't start and end with Trustate. Whether you collect client data through an intake portal, manage matters in a practice management system, or draft documents in another platform before migrating, we can work with your existing tech stack and bridge the gap.</p>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; max-width:800px;">
-            <!-- Primary Platform -->
-            <div style="grid-column:1/-1; background:var(--charcoal); border-radius:6px; padding:2rem; text-align:center; border:1px solid rgba(212,115,78,0.25);">
-                <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--forge-orange); font-weight:600; margin-bottom:0.5rem;">Our Core Platform</div>
-                <a href="https://www.trustate.com" target="_blank" rel="noopener" style="font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--parchment); text-decoration:none;">Trustate</a>
-                <p style="color:#8a8a94; font-size:0.88rem; margin-top:0.5rem; text-align:center;">Document generation, drafting question sets, data keys, templates, and complete document packages. We know it inside and out.</p>
-            </div>
-
-            <!-- Intake & Data -->
-            <div style="background:var(--snow); border:1px solid rgba(0,0,0,0.06); border-radius:4px; padding:1.5rem;">
-                <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--forge-orange); font-weight:600; margin-bottom:0.5rem;">Client Intake</div>
-                <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:600; color:var(--charcoal); margin-bottom:0.5rem;">Intake &amp; Data Platforms</div>
-                <p style="color:var(--text-light); font-size:0.82rem; line-height:1.6; text-align:justify;">We work with data from the tools your firm already uses to collect client information, asset inventories, and family details.</p>
-                <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.8rem;">
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">Decision Vault</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">LawMatics</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">Clio Grow</span>
+        <!-- SERVICES -->
+        <section id="services" class="services-section">
+            <p class="section-label">What We Forge</p>
+            <h2 class="section-heading">Services</h2>
+            <p class="section-text">From drafting to generation to final polish — we handle the detail work so your firm can focus on your clients.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Legal Document Drafting</h3>
+                    <p>Custom drafting from scratch or using your firm's templates. We handle the details so you can focus on strategy.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Trustate Document Generation</h3>
+                    <p>Expert navigation of Trustate question sets, data entry, and package generation. We know the platform inside and out.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Quality Review & Polish</h3>
+                    <p>Final formatting, consistency checks, and client-ready preparation. Every document gets the details right.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Matter Sync & Data Transfer</h3>
+                    <p>We pull data from your intake platform, sync it to Trustate, and keep everything organized and on track.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Case Management -->
-            <div style="background:var(--snow); border:1px solid rgba(0,0,0,0.06); border-radius:4px; padding:1.5rem;">
-                <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--forge-orange); font-weight:600; margin-bottom:0.5rem;">Practice Management</div>
-                <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:600; color:var(--charcoal); margin-bottom:0.5rem;">Case Management Systems</div>
-                <p style="color:var(--text-light); font-size:0.82rem; line-height:1.6; text-align:justify;">Whatever system your firm uses to manage matters, we can pull data sheets from it and sync into Trustate for generation.</p>
-                <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.8rem;">
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">Clio Manage</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">MyCase</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">Smokeball</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">PracticePanther</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">CosmoLex</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">Rocket Matter</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">ActionStep</span>
-                    <span style="padding:0.25rem 0.6rem; background:var(--parchment); border-radius:3px; font-size:0.72rem; color:var(--stone); font-weight:500;">Filevine</span>
+        <div class="divider">
+            <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="14" width="24" height="4" rx="1"/>
+                <rect x="12" y="10" width="16" height="5" rx="1"/>
+                <rect x="4" y="17" width="32" height="3" rx="1"/>
+                <rect x="14" y="20" width="12" height="4" rx="1"/>
+            </svg>
+        </div>
+
+        <!-- PLATFORMS INTRO -->
+        <section class="platforms-section">
+            <div class="platforms-content">
+                <p class="section-label">Built on Trustate</p>
+                <h2 class="section-heading">Your Tools. Our Expertise.</h2>
+                <p class="section-text">We're Trustate Certified and work with all major legal intake and practice management platforms. Whatever tech stack your firm uses, we can bridge the gap.</p>
+                <a href="platforms.html" class="platforms-link">See All Platforms →</a>
+            </div>
+        </section>
+
+        <div class="divider">
+            <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="14" width="24" height="4" rx="1"/>
+                <rect x="12" y="10" width="16" height="5" rx="1"/>
+                <rect x="4" y="17" width="32" height="3" rx="1"/>
+                <rect x="14" y="20" width="12" height="4" rx="1"/>
+            </svg>
+        </div>
+
+        <!-- PROCESS -->
+        <section class="process-section">
+            <p class="section-label">The Process</p>
+            <h2 class="section-heading">From Matter to Masterpiece</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Add Us to Your Account</h3>
+                    <p>Invite Drafter@DocForge.com to a seat on your Trustate account. We work inside your environment — your data never leaves your platform.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Assign Us a Matter</h3>
+                    <p>Point us to the matter in Trustate. All client data stays securely within your account — we simply access what we need to draft.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>We Draft & Polish</h3>
+                    <p>We generate the documents, review formatting, and make sure everything is accurate, consistent, and client-ready.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>You Deliver</h3>
+                    <p>Clean, professional documents ready for your client's signature. That's it.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Drafting Tools -->
-            <div style="grid-column:1/-1; background:var(--snow); border:1px solid rgba(0,0,0,0.06); border-radius:4px; padding:1.5rem; text-align:center;">
-                <div style="font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--forge-orange); font-weight:600; margin-bottom:0.5rem;">Already Drafting Elsewhere?</div>
-                <p style="color:var(--text-light); font-size:0.88rem; line-height:1.6; max-width:600px; margin:0 auto;">If your firm currently uses <strong>Wealth Counsel / WealthDocx</strong> or another drafting tool and wants to transition to Trustate, we can help with migration and onboarding too.</p>
-            </div>
+        <div class="divider">
+            <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="14" width="24" height="4" rx="1"/>
+                <rect x="12" y="10" width="16" height="5" rx="1"/>
+                <rect x="4" y="17" width="32" height="3" rx="1"/>
+                <rect x="14" y="20" width="12" height="4" rx="1"/>
+            </svg>
         </div>
-    </section>
 
-    <!-- ANVIL DIVIDER -->
-    <div class="divider" style="background: var(--parchment);">
-        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="14" width="24" height="4" rx="1"/>
-            <rect x="12" y="10" width="16" height="5" rx="1"/>
-            <rect x="4" y="17" width="32" height="3" rx="1"/>
-            <rect x="14" y="20" width="12" height="4" rx="1"/>
-        </svg>
-    </div>
-
-    <!-- PROCESS -->
-    <section class="process">
-        <div class="section-header">
-            <span class="section-label">The Process</span>
-            <h2>From Matter to Masterpiece</h2>
-        </div>
-        <div class="process-steps">
-            <div class="process-step">
-                <h3>1. Add Us to Your Account</h3>
-                <p>Invite Drafter@DocForge.com to a seat on your Trustate account...</p>
-            </div>
-            <div class="process-step">
-                <h3>2. Assign Us a Matter</h3>
-                <p>Point us to the matter in Trustate...</p>
-            </div>
-            <div class="process-step">
-                <h3>3. We Draft &amp; Polish</h3>
-                <p>We generate the documents, review formatting...</p>
-            </div>
-            <div class="process-step">
-                <h3>4. You Deliver</h3>
-                <p>Clean, professional documents ready for your client's signature. That's it.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ANVIL DIVIDER -->
-    <div class="divider" style="background: var(--snow);">
-        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="14" width="24" height="4" rx="1"/>
-            <rect x="12" y="10" width="16" height="5" rx="1"/>
-            <rect x="4" y="17" width="32" height="3" rx="1"/>
-            <rect x="14" y="20" width="12" height="4" rx="1"/>
-        </svg>
-    </div>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="section-header">
-                <span class="section-label">Who We Are</span>
-                <h2>About DocForge</h2>
-            </div>
+        <!-- ABOUT -->
+        <section id="about" class="about-section">
+            <p class="section-label">Who We Are</p>
+            <h2 class="section-heading">About DocForge</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <h3>Our Team</h3>
-                    <p>DocForge is a team of experienced paralegals and legal assistants with deep expertise in trusts, estates, and probate law. We're Trustate Certified and passionate about delivering clean, polished legal documents that your clients will appreciate.</p>
-                    <h3>Based in Washington</h3>
-                    <p>Founded on Whidbey Island, Washington, we serve law firms nationwide. We're proudly woman-owned and military spouse-operated, working out of Naval Air Station Whidbey Island. We understand the unique needs of firms balancing quality work with staffing challenges, and we're here to help.</p>
+                    <p>DocForge was built by paralegals for paralegals — and for the firms we partner with. We understand the pressure of turning around quality documents under deadline. We know Trustate inside and out, and we've seen every variation of trusts, estates, and probate work you can think of.</p>
+                    <p>Our team brings real expertise, attention to detail, and the kind of client-ready polish that saves your attorneys time and keeps your clients happy. We're here to be your extended team — the people who handle the detail work so you can focus on strategy and client relationships.</p>
                 </div>
-                <div class="highlights">
+                <div class="highlight-cards">
                     <div class="highlight-card">
-                        <h4>Trusts, Estates &amp; Probate</h4>
+                        <h4>Trusts, Estates & Probate</h4>
+                        <p>Deep expertise across all document types — from simple wills to complex irrevocable trusts and multi-state probate filings.</p>
                     </div>
                     <div class="highlight-card">
                         <h4>Trustate Certified</h4>
+                        <p>Officially trained and certified on the Trustate platform. We know the question sets, templates, and workflows.</p>
                     </div>
                     <div class="highlight-card">
                         <h4>Your Extended Team</h4>
+                        <p>We don't just draft — we partner with your firm to understand your style, your client base, and your workflow.</p>
                     </div>
                     <div class="highlight-card">
-                        <h4>Woman Owned &amp; Military Spouse Operated</h4>
+                        <h4>Woman Owned & Military Spouse Operated</h4>
                         <p>Proudly woman-owned and military spouse operated out of Naval Air Station Whidbey Island, WA.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-        <div class="contact-inner">
-            <span class="section-label">Let's Work Together</span>
-            <h2>Ready to Forge Something Great?</h2>
-            <p>Whether you need ongoing document support or help with a single project, we're here to make your drafting process easier.</p>
-            <div class="contact-items">
-                <div class="contact-item">
-                    <strong>Email</strong>
-                    <p>info@docforge.com</p>
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+            <div class="contact-content">
+                <p class="section-label">Let's Work Together</p>
+                <h2 class="section-heading">Ready to Forge Something Great?</h2>
+                <p class="section-text">Whether you need ongoing document support or help with a single project, we're here to make your drafting process easier.</p>
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>info@docforge.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Location</h4>
+                        <p>Oak Harbor, WA</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Serving</h4>
+                        <p>Firms Nationwide</p>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <strong>Location</strong>
-                    <p>Oak Harbor, WA</p>
-                </div>
-                <div class="contact-item">
-                    <strong>Serving</strong>
-                    <p>Firms Nationwide</p>
+                <div class="contact-cta">
+                    <button class="cta-button" onclick="openModal()">Get Started</button>
                 </div>
             </div>
-            <button class="cta" onclick="openModal()">Get Started</button>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- CONTACT FORM MODAL -->
-    <div class="modal" id="contactModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <h2>Let's Get Started</h2>
-            <p class="form-subtitle">Tell us a bit about your needs. One of our team members will follow up within one business day.</p>
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-content">
+                <h2>Get in Touch</h2>
+                <form action="https://formsubmit.co/info@docforge.com" method="POST">
+                    <input type="hidden" name="_subject" value="New DocForge Inquiry">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_template" value="box">
+                    <input type="hidden" name="_honey" value="">
 
-            <form action="https://formsubmit.co/info@docforge.com" method="POST">
-                <input type="hidden" name="_subject" value="New DocForge Inquiry">
-                <input type="hidden" name="_captcha" value="true">
-                <input type="hidden" name="_template" value="box">
-                <input type="text" name="_honey" style="display:none">
-
-                <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name *</label>
-                        <input type="text" id="name" name="Name" required placeholder="Jane Smith">
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="Email" required placeholder="jane@email.com">
-                    </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group">
                         <label for="firm">Firm *</label>
-                        <input type="text" id="firm" name="Firm" required placeholder="Your Firm Name">
+                        <input type="text" id="firm" name="firm" required>
                     </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567">
+                        <input type="tel" id="phone" name="phone">
                     </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group">
                         <label for="package">Package Interest</label>
-                        <select id="package" name="Package Interest">
-                            <option value="">Select</option>
-                            <option value="Standard">Standard</option>
-                            <option value="Comprehensive">Comprehensive</option>
-                            <option value="Complex">Complex</option>
+                        <select id="package" name="package">
+                            <option value="">Select...</option>
+                            <option value="Standard $35-65">Standard ($35-$65)</option>
+                            <option value="Comprehensive $75-150">Comprehensive ($75-$150)</option>
+                            <option value="Complex $175-300">Complex ($175-$300)</option>
                             <option value="Not sure">Not sure</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="volume">Monthly Volume</label>
-                        <select id="volume" name="Monthly Volume">
-                            <option value="">Select</option>
-                            <option value="1-5 packages">1–5 packages</option>
-                            <option value="5-10 packages">5–10 packages</option>
-                            <option value="10+ packages">10+ packages</option>
+                        <select id="volume" name="volume">
+                            <option value="">Select...</option>
+                            <option value="1-5">1-5 documents</option>
+                            <option value="6-10">6-10 documents</option>
+                            <option value="11-20">11-20 documents</option>
+                            <option value="20+">20+ documents</option>
+                            <option value="Just getting started">Just getting started</option>
                         </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="about">Tell Us More</label>
-                    <textarea id="about" name="Tell Us More" placeholder="What brings you here? What are your drafting needs?"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us More</label>
+                        <textarea id="message" name="message" placeholder="Anything else we should know?"></textarea>
+                    </div>
 
-                <button type="submit" class="form-submit">Send Inquiry</button>
-            </form>
+                    <button type="submit" class="modal-submit">Send Inquiry</button>
+                    <p class="form-note">We'll respond within 1 business day.</p>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -980,16 +867,22 @@
         function openModal() {
             document.getElementById('contactModal').classList.add('active');
         }
+
         function closeModal() {
             document.getElementById('contactModal').classList.remove('active');
         }
-        window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target === modal) {
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
                 closeModal();
             }
-        }
-    </script>
+        });
 
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>

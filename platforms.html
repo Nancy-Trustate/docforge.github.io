@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Catalog | DocForge, LLC</title>
+    <title>Platforms | DocForge, LLC</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -82,7 +82,7 @@
         .page-header {
             background: var(--charcoal);
             color: var(--snow);
-            padding: 8rem 2rem 3rem;
+            padding: 5rem 2rem 3rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -133,103 +133,159 @@
             text-align: justify;
         }
 
-        .disclaimer {
-            background: rgba(232, 149, 110, 0.08);
-            border-left: 3px solid var(--forge-orange);
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 1200px;
-            border-radius: 0.2rem;
-            font-size: 0.9rem;
-            color: var(--text);
+        .gradient-fade {
+            height: 60px;
+            background: linear-gradient(to bottom, var(--charcoal), var(--parchment));
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        .core-platform-section {
+            background: var(--parchment);
+            text-align: center;
+        }
+
+        .core-platform-card {
+            background: var(--charcoal);
+            border: 2px solid var(--forge-orange);
+            padding: 3rem 2rem;
+            border-radius: 0.3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--snow);
+        }
+
+        .core-platform-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--forge-glow);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .core-platform-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .core-platform-card h2 a {
+            color: var(--forge-glow);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .core-platform-card h2 a:hover {
+            color: var(--snow);
+        }
+
+        .core-platform-card p {
+            font-size: 1rem;
+            color: #d0d0d8;
             line-height: 1.8;
             text-align: justify;
         }
 
-        .catalog-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .category {
-            margin-bottom: 4rem;
-        }
-
-        .category h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--forge-orange);
-        }
-
-        .doc-grid {
+        .platform-categories {
+            background: var(--parchment);
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .doc-item {
-            background: var(--parchment);
-            padding: 1.2rem;
-            border-radius: 0.3rem;
-            border-left: 3px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .doc-item:hover {
-            border-left-color: var(--forge-orange);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .doc-item p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .ancillary-section {
+        .platform-card {
             background: var(--snow);
-            border: 1px solid #e0e0e8;
             padding: 2rem;
             border-radius: 0.3rem;
-            margin: 3rem auto;
-            max-width: 1200px;
+            border-top: 3px solid var(--forge-orange);
         }
 
-        .ancillary-section h3 {
+        .platform-card h3 {
             font-size: 1.3rem;
             color: var(--text);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        .badge-grid {
+        .platform-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .platform-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.6rem;
         }
 
-        .badge {
-            background: var(--charcoal);
-            color: var(--snow);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
+        .tag {
+            background: var(--parchment);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.2rem;
             font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--forge-orange);
-            color: var(--forge-orange);
-            background: transparent;
-            transition: all 0.3s;
+            color: var(--text);
+            border: 1px solid #f0f0f0;
         }
 
-        .badge:hover {
-            background: var(--forge-orange);
-            color: var(--snow);
+        .drafting-tools-section {
+            background: var(--snow);
+            text-align: center;
+        }
+
+        .drafting-tools-card {
+            background: var(--parchment);
+            padding: 2rem;
+            border-radius: 0.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .drafting-tools-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .drafting-tools-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .divider {
+            display: flex;
+            justify-content: center;
+            padding: 3rem 0;
+            background: var(--snow);
+        }
+
+        .divider svg {
+            width: 60px;
+            height: 36px;
+            fill: var(--forge-orange);
+            opacity: 0.3;
+        }
+
+        .final-section {
+            background: var(--parchment);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-section p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            text-align: justify;
         }
 
         .page-cta {
@@ -237,7 +293,6 @@
             color: var(--snow);
             padding: 3rem 2rem;
             text-align: center;
-            margin-top: 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -420,18 +475,16 @@
 
             main { padding-top: 70px; }
 
-            .page-header { padding: 5rem 1.5rem 2rem; }
+            .page-header { padding: 3.5rem 1.5rem 2rem; }
             .page-header h1 { font-size: 2rem; }
 
-            .doc-grid { grid-template-columns: 1fr; }
+            section { padding: 2rem 1.5rem; }
 
-            .category h2 { font-size: 1.5rem; }
+            .platform-categories { grid-template-columns: 1fr; }
 
             .page-cta h2 { font-size: 1.8rem; }
 
             .modal-card { padding: 1.5rem; }
-
-            .catalog-section { padding: 0 1.5rem; }
         }
 
         @media (max-width: 480px) {
@@ -439,12 +492,18 @@
             nav ul { gap: 0.8rem; }
             nav a { font-size: 0.65rem; }
 
-            .page-header { padding: 3.5rem 1rem 1.5rem; }
+            .page-header { padding: 3rem 1rem 1.5rem; }
             .page-header h1 { font-size: 1.5rem; }
 
-            .catalog-section { padding: 0 1rem; }
+            section { padding: 1.5rem 1rem; }
 
-            .badge-grid { justify-content: center; }
+            .core-platform-card { padding: 1.5rem 1rem; }
+
+            .core-platform-card h2 { font-size: 1.5rem; }
+
+            .platform-card h3 { font-size: 1.1rem; }
+
+            .drafting-tools-card h3 { font-size: 1.5rem; }
 
             .page-cta { padding: 2rem 1rem; }
         }
@@ -470,9 +529,9 @@
         </a>
         <ul>
             <li><a href="index.html#services">Services</a></li>
-            <li><a href="documents.html" class="active">What We Draft</a></li>
+            <li><a href="documents.html">What We Draft</a></li>
             <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="platforms.html">Platforms</a></li>
+            <li><a href="platforms.html" class="active">Platforms</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
             <li><a href="apply.html">Apply</a></li>
@@ -482,139 +541,70 @@
     <main>
         <div class="page-header">
             <div class="page-header-content">
-                <p class="page-label">Document Catalog</p>
-                <h1>What We Can Draft for You</h1>
-                <p>Whether it's a straightforward revocable trust or a complex multi-state probate filing, our team has the expertise and the Trustate platform knowledge to generate it right.</p>
+                <p class="page-label">Built on Trustate</p>
+                <h1>Trustate Experts. Platform Fluent.</h1>
+                <p>We're Trustate Certified — trained directly on the platform. But we also know your firm's workflow doesn't start and end with Trustate. We bridge the gap between your existing tools and polished documents.</p>
             </div>
         </div>
 
-        <div class="disclaimer">
-            <strong>Attorney Review Required:</strong> DocForge provides professional document drafting and generation services as support staff. We are not attorneys and do not provide legal advice. All documents generated by DocForge are intended for review, approval, and supervision by a licensed attorney before delivery to any client.
+        <div class="gradient-fade"></div>
+
+        <section class="core-platform-section">
+            <div class="core-platform-card">
+                <p class="core-platform-label">Our Core Platform</p>
+                <h2><a href="https://trustate.com" target="_blank">Trustate</a></h2>
+                <p>Document generation, drafting question sets, data keys, templates, and complete document packages. We know it inside and out.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="platform-categories">
+                <div class="platform-card">
+                    <h3>Intake & Data Platforms</h3>
+                    <p>We work with data from the tools your firm already uses to collect client information, asset inventories, and family details.</p>
+                    <div class="platform-tags">
+                        <span class="tag">Decision Vault</span>
+                        <span class="tag">LawMatics</span>
+                        <span class="tag">Clio Grow</span>
+                    </div>
+                </div>
+
+                <div class="platform-card">
+                    <h3>Case Management Systems</h3>
+                    <p>Whatever system your firm uses to manage matters, we can pull data sheets from it and sync into Trustate for generation.</p>
+                    <div class="platform-tags">
+                        <span class="tag">Clio Manage</span>
+                        <span class="tag">MyCase</span>
+                        <span class="tag">Smokeball</span>
+                        <span class="tag">PracticePanther</span>
+                        <span class="tag">CosmoLex</span>
+                        <span class="tag">Rocket Matter</span>
+                        <span class="tag">ActionStep</span>
+                        <span class="tag">Filevine</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="drafting-tools-section">
+            <div class="drafting-tools-card">
+                <h3>Already Drafting Elsewhere?</h3>
+                <p>If your firm currently uses Wealth Counsel / WealthDocx or another drafting tool and wants to transition to Trustate, we can help with migration and onboarding too.</p>
+            </div>
+        </section>
+
+        <div class="divider">
+            <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="14" width="24" height="4" rx="1"/>
+                <rect x="12" y="10" width="16" height="5" rx="1"/>
+                <rect x="4" y="17" width="32" height="3" rx="1"/>
+                <rect x="14" y="20" width="12" height="4" rx="1"/>
+            </svg>
         </div>
 
-        <div class="catalog-section">
-            <div class="category">
-                <h2>Revocable Living Trusts</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>RLT (Married)</p></div>
-                    <div class="doc-item"><p>RLT (Single)</p></div>
-                    <div class="doc-item"><p>JTRLT (Community Property)</p></div>
-                    <div class="doc-item"><p>JTRLT (Non-Community Property)</p></div>
-                    <div class="doc-item"><p>Trust Amendments</p></div>
-                    <div class="doc-item"><p>Certificate of Trust</p></div>
-                    <div class="doc-item"><p>Memorandum of Trust</p></div>
-                    <div class="doc-item"><p>Declaration of Trust</p></div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h2>Irrevocable Trusts</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>ILIT (Married)</p></div>
-                    <div class="doc-item"><p>ILIT (Single)</p></div>
-                    <div class="doc-item"><p>IDGT (Estate Freeze)</p></div>
-                    <div class="doc-item"><p>SLAT (Gift Tax Exemption)</p></div>
-                    <div class="doc-item"><p>GRAT (Wealth Transfer)</p></div>
-                    <div class="doc-item"><p>SNT (1st Party)</p></div>
-                    <div class="doc-item"><p>SNT (3rd Party)</p></div>
-                    <div class="doc-item"><p>MAPT (Married)</p></div>
-                    <div class="doc-item"><p>MAPT (Single)</p></div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h2>Wills & Testamentary</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>Pour-Over Will</p></div>
-                    <div class="doc-item"><p>Standalone Will (Non-Pour-Over)</p></div>
-                    <div class="doc-item"><p>Codicil</p></div>
-                    <div class="doc-item"><p>Affidavit of Attesting Witness</p></div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h2>POA & Healthcare</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>GDPOA (Client)</p></div>
-                    <div class="doc-item"><p>GDPOA (Spouse)</p></div>
-                    <div class="doc-item"><p>GDPOA (Successive Agent Orders)</p></div>
-                    <div class="doc-item"><p>Statutory GDPOA</p></div>
-                    <div class="doc-item"><p>POA for Minors</p></div>
-                    <div class="doc-item"><p>Living Will/Advance Directive</p></div>
-                    <div class="doc-item"><p>HIPAA Authorization</p></div>
-                    <div class="doc-item"><p>Agent Certification for POA</p></div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h2>Trust Funding & Asset Transfer</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>Real Property Deeds</p></div>
-                    <div class="doc-item"><p>Deed Transfer Tax Docs</p></div>
-                    <div class="doc-item"><p>Assignment of Business Interests</p></div>
-                    <div class="doc-item"><p>Assignment of TPP</p></div>
-                    <div class="doc-item"><p>Beneficiary Designations</p></div>
-                    <div class="doc-item"><p>Bank & Investment Account Instructions</p></div>
-                    <div class="doc-item"><p>Retirement Account Instructions</p></div>
-                    <div class="doc-item"><p>Life Insurance Funding Letters</p></div>
-                    <div class="doc-item"><p>Promissory Notes</p></div>
-                    <div class="doc-item"><p>Gift Documents</p></div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h2>Trust Administration</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>Affidavit of Death</p></div>
-                    <div class="doc-item"><p>Notice of Death</p></div>
-                    <div class="doc-item"><p>Notice of Irrevocability (UPC)</p></div>
-                    <div class="doc-item"><p>Trustee Acceptance</p></div>
-                    <div class="doc-item"><p>Co-Trustee Appointment</p></div>
-                    <div class="doc-item"><p>Resignation of Trustee</p></div>
-                    <div class="doc-item"><p>Waiver Release & Indemnification</p></div>
-                    <div class="doc-item"><p>EIN Application Docs</p></div>
-                    <div class="doc-item"><p>DOD Value Request Letters</p></div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h2>Probate</h2>
-                <div class="doc-grid">
-                    <div class="doc-item"><p>Petition for Administration (Formal Testate)</p></div>
-                    <div class="doc-item"><p>Petition for Administration (Formal Intestate)</p></div>
-                    <div class="doc-item"><p>FL Homestead Determination</p></div>
-                    <div class="doc-item"><p>FL Exempt Property</p></div>
-                    <div class="doc-item"><p>Joinder Documents</p></div>
-                    <div class="doc-item"><p>NY Probate Filings</p></div>
-                    <div class="doc-item"><p>Notice to Creditors</p></div>
-                    <div class="doc-item"><p>Estate Closing Letters</p></div>
-                    <div class="doc-item"><p>Credit Bureau Letters</p></div>
-                    <div class="doc-item"><p>IRS Form 1310</p></div>
-                    <div class="doc-item"><p>IRS Form 56</p></div>
-                </div>
-            </div>
-
-            <div class="ancillary-section">
-                <h3>Ancillary Documents</h3>
-                <div class="badge-grid">
-                    <span class="badge">Estate Planning Flowcharts</span>
-                    <span class="badge">Estate Plan Summary Letters</span>
-                    <span class="badge">Matter Info Sheets</span>
-                    <span class="badge">Funding Instructions</span>
-                    <span class="badge">Authorization Letters</span>
-                    <span class="badge">Inquiry Letters (Bank)</span>
-                    <span class="badge">Inquiry Letters (Life Insurance)</span>
-                    <span class="badge">Inquiry Letters (Employer)</span>
-                    <span class="badge">Crummey Notices</span>
-                    <span class="badge">GRAT Annual Payment Docs</span>
-                    <span class="badge">Document Supplements (Trusts)</span>
-                    <span class="badge">Document Supplements (Wills)</span>
-                    <span class="badge">Successive Agent Orders</span>
-                    <span class="badge">Beneficiary Change Forms</span>
-                    <span class="badge">Account Opening Documents</span>
-                </div>
-            </div>
-        </div>
+        <section class="final-section">
+            <p>Don't see your platform? No problem. If your firm uses a system we haven't listed, reach out — chances are we can work with it.</p>
+        </section>
 
         <div class="page-cta">
             <div class="page-cta-content">
@@ -631,7 +621,7 @@
             <div class="modal-content">
                 <h2>Get in Touch</h2>
                 <form action="https://formsubmit.co/info@docforge.com" method="POST">
-                    <input type="hidden" name="_subject" value="New DocForge Inquiry (from Documents page)">
+                    <input type="hidden" name="_subject" value="New DocForge Inquiry (from Platforms page)">
                     <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_template" value="box">
                     <input type="hidden" name="_honey" value="">
