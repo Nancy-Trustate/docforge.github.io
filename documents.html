@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Catalog | DocForge, LLC</title>
-    <meta name="description" content="DocForge document drafting catalog — see the full range of trusts, estates, probate, and ancillary documents we generate through Trustate.">
+    <meta name="description" content="Complete catalog of legal documents DocForge can draft. Trusts, wills, probate filings, powers of attorney, and more.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,12 +47,14 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--forge-orange);
+            color: #ffffff;
             display: flex;
             align-items: center;
             gap: 0.6rem;
             text-decoration: none;
         }
+
+        .logo .forge { color: var(--forge-orange); }
 
         .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
 
@@ -73,19 +76,45 @@
 
         nav a:hover, nav a.active { color: var(--forge-orange); }
 
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background: #141416;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+        }
+
         /* PAGE HEADER */
         .page-header {
             background: var(--charcoal);
-            padding: 7rem 2rem 3rem;
+            padding: 8rem 2rem 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 40% 12%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 65% 28%, rgba(255,255,255,0.25), transparent),
+                radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.35), transparent);
+            z-index: 0;
         }
 
         .page-header-inner {
+            position: relative;
+            z-index: 1;
             max-width: 700px;
             margin: 0 auto;
         }
 
-        .page-header .label {
+        .page-header .section-label {
             font-size: 0.72rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -106,272 +135,324 @@
             color: #8a8a94;
             font-size: 1rem;
             line-height: 1.7;
-            max-width: 550px;
+            max-width: 580px;
             margin: 0 auto;
         }
 
         /* DISCLAIMER */
         .disclaimer {
+            background: #fff8e6;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem auto;
             max-width: 900px;
-            margin: -1rem auto 0;
-            padding: 1.2rem 1.5rem;
-            background: rgba(212, 115, 78, 0.06);
-            border: 1px solid rgba(212, 115, 78, 0.15);
-            border-radius: 4px;
-            font-size: 0.82rem;
-            color: var(--text-light);
+            border-radius: 3px;
+        }
+
+        .disclaimer strong {
+            color: #92400e;
+            font-weight: 700;
+        }
+
+        .disclaimer p {
+            color: #92400e;
+            font-size: 0.9rem;
             line-height: 1.6;
             text-align: justify;
-            position: relative;
-            z-index: 2;
+            margin: 0;
         }
 
-        .disclaimer strong { color: var(--forge-orange); }
-
-        /* CATALOG */
+        /* CATALOG CONTENT */
         .catalog {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem 5rem;
+            padding: 3rem 2rem 4rem;
         }
 
-        /* DOCUMENT CATEGORY */
-        .doc-category {
+        .catalog-section {
             margin-bottom: 3rem;
         }
 
-        .doc-category h2 {
+        .catalog-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--charcoal);
-            margin-bottom: 0.3rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 2px solid var(--forge-orange);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         .doc-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0;
+            gap: 1rem;
         }
 
         .doc-item {
-            padding: 0.8rem 1rem;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
-            transition: background 0.2s;
-        }
-
-        .doc-item:hover { background: rgba(212, 115, 78, 0.04); }
-
-        .doc-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--charcoal);
-        }
-
-        .doc-detail {
-            font-size: 0.78rem;
-            color: var(--stone);
-            margin-top: 0.1rem;
-        }
-
-        /* ANCILLARY */
-        .ancillary-banner {
-            margin-top: 2rem;
-            padding: 2rem;
+            padding: 1rem;
             background: var(--snow);
             border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 4px;
+            border-radius: 3px;
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.5;
         }
 
-        .ancillary-banner h3 {
+        .doc-item::before {
+            content: '▪';
+            color: var(--forge-orange);
+            margin-right: 0.6rem;
+            font-weight: bold;
+        }
+
+        /* ANCILLARY DOCS */
+        .ancillary {
+            background: var(--snow);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .ancillary h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--charcoal);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .ancillary-banner > p {
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-
-        .ancillary-list {
+        .tag-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
 
-        .ancillary-tag {
-            display: inline-block;
-            padding: 0.35rem 0.8rem;
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
             background: var(--parchment);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 3px;
-            font-size: 0.78rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
             color: var(--text-light);
             font-weight: 500;
         }
 
-        /* CTA */
+        .tag::before {
+            content: '✓';
+            color: var(--forge-orange);
+            margin-right: 0.6rem;
+            font-weight: bold;
+        }
+
+        /* PAGE CTA */
         .page-cta {
             background: var(--charcoal);
             padding: 4rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-top: 2rem;
         }
 
         .page-cta::before {
             content: '';
             position: absolute;
-            bottom: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 300px;
-            background: radial-gradient(ellipse, rgba(212, 115, 78, 0.08) 0%, transparent 70%);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.25), transparent),
+                radial-gradient(1.5px 1.5px at 40% 12%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(1px 1px at 65% 28%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.3), transparent);
+            z-index: 0;
         }
 
         .page-cta-inner {
             position: relative;
             z-index: 1;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .page-cta h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 700;
             color: var(--parchment);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
-        .page-cta p {
-            color: #8a8a94;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .page-cta a {
+        .cta {
             display: inline-block;
-            padding: 0.85rem 2.2rem;
+            padding: 0.85rem 2rem;
             background: var(--forge-orange);
             color: white;
-            text-decoration: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             border-radius: 3px;
+            cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 0 30px rgba(212, 115, 78, 0.2);
+            text-decoration: none;
         }
 
-        .page-cta a:hover {
+        .cta:hover {
             background: var(--forge-glow);
             transform: translateY(-2px);
-            box-shadow: 0 0 50px rgba(212, 115, 78, 0.35);
+            box-shadow: 0 4px 20px rgba(212,115,78,0.3);
         }
 
-        /* MODAL FORM */
-        .modal-overlay {
+        /* MODAL */
+        .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
-            z-index: 1000;
-            justify-content: center;
+            background: rgba(0,0,0,0.7);
+            z-index: 200;
             align-items: center;
+            justify-content: center;
             padding: 2rem;
+            overflow-y: auto;
         }
-        .modal-overlay.active { display: flex; }
-        .modal {
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
             background: var(--snow);
             border-radius: 6px;
             padding: 2.5rem;
-            max-width: 520px;
+            max-width: 600px;
             width: 100%;
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
-        }
-        .modal-close {
-            position: absolute; top: 1rem; right: 1.2rem;
-            background: none; border: none; font-size: 1.5rem;
-            color: var(--stone); cursor: pointer; transition: color 0.3s;
-        }
-        .modal-close:hover { color: var(--forge-orange); }
-        .modal h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem; font-weight: 700;
-            color: var(--charcoal); margin-bottom: 0.3rem;
-        }
-        .modal .modal-subtitle {
-            font-size: 0.88rem; color: var(--text-light);
-            margin-bottom: 1.8rem; line-height: 1.6;
-        }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label {
-            display: block; font-size: 0.78rem; font-weight: 600;
-            letter-spacing: 0.5px; text-transform: uppercase;
-            color: var(--stone); margin-bottom: 0.4rem;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 0.7rem 0.9rem;
-            border: 1px solid rgba(0,0,0,0.12); border-radius: 3px;
-            font-family: 'Inter', sans-serif; font-size: 0.92rem;
-            color: var(--text); background: #faf8f5; transition: border-color 0.3s;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none; border-color: var(--forge-orange);
-            box-shadow: 0 0 0 3px rgba(212,115,78,0.1);
-        }
-        .form-group textarea { resize: vertical; min-height: 80px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .form-submit {
-            display: block; width: 100%; padding: 0.85rem;
-            background: var(--forge-orange); color: white; border: none;
-            font-family: 'Inter', sans-serif; font-weight: 600;
-            font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
-            border-radius: 3px; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem;
-        }
-        .form-submit:hover {
-            background: #e8956e; transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(212,115,78,0.25);
-        }
-        .form-note {
-            text-align: center; font-size: 0.75rem;
-            color: var(--stone); margin-top: 1rem;
         }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 1.5rem 2rem;
-            background: #141416;
-            color: rgba(255,255,255,0.3);
-            font-size: 0.8rem;
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--stone);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--charcoal);
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.4rem;
+        }
+
+        .modal .form-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--stone);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            color: var(--text);
+            background: var(--snow);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--forge-orange);
+            box-shadow: 0 0 0 3px rgba(212,115,78,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            background: var(--forge-orange);
+            color: white;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--forge-glow);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(212,115,78,0.25);
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav { padding: 0.8rem 1.2rem; }
-            nav ul { gap: 1rem; }
+            nav {
+                padding: 0.8rem 1.2rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
             nav a { font-size: 0.72rem; }
-            .catalog { padding: 3rem 1.5rem; }
+            .page-header { padding: 6rem 2rem 3rem; margin-top: 140px; }
             .doc-grid { grid-template-columns: 1fr; }
-            .disclaimer { margin: -1rem 1rem 0; padding: 1rem 1.2rem; }
             .form-row { grid-template-columns: 1fr; }
-            .modal { padding: 1.8rem 1.5rem; }
+            .modal-content { padding: 2rem; }
         }
 
         html { scroll-behavior: smooth; }
@@ -394,7 +475,7 @@
                     <path d="M-45,-38 L-62,-31 L-45,-24 Z" fill="#b85a3a"/>
                 </g>
             </svg>
-            DocForge
+            Doc<span class="forge">Forge</span>
         </a>
         <ul>
             <li><a href="index.html#services">Services</a></li>
@@ -402,302 +483,228 @@
             <li><a href="pricing.html">Pricing</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="apply.html">Apply</a></li>
         </ul>
     </nav>
 
-    <div class="page-header">
+    <!-- PAGE HEADER -->
+    <section class="page-header">
         <div class="page-header-inner">
-            <p class="label">Document Catalog</p>
+            <p class="section-label">Document Catalog</p>
             <h1>What We Can Draft for You</h1>
-            <p>Whether it's a straightforward revocable trust or a complex multi-state probate filing, our team has the expertise and the Trustate platform knowledge to generate it right.</p>
+            <p>Whether it's a straightforward revocable trust or a complex multi-state probate filing...</p>
         </div>
-    </div>
+    </section>
 
+    <!-- DISCLAIMER -->
     <div class="disclaimer">
-        <strong>Attorney Review Required:</strong> DocForge provides professional document drafting and generation services as support staff. We are not attorneys and do not provide legal advice. All documents generated by DocForge are intended for review, approval, and supervision by a licensed attorney before delivery to any client.
+        <p><strong>Attorney Review Required:</strong> DocForge provides professional document drafting and generation services as support staff. We are not attorneys and do not provide legal advice. All documents generated by DocForge are intended for review, approval, and supervision by a licensed attorney before delivery to any client.</p>
     </div>
 
+    <!-- CATALOG -->
     <div class="catalog">
 
         <!-- REVOCABLE LIVING TRUSTS -->
-        <div class="doc-category">
+        <div class="catalog-section">
             <h2>Revocable Living Trusts</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">Revocable Living Trust (RLT)</div>
-                    <div class="doc-detail">Married &amp; Single clients</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Joint Revocable Living Trust (JTRLT)</div>
-                    <div class="doc-detail">Community &amp; Non-Community Property states</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Trust Amendments</div>
-                    <div class="doc-detail">Modifications to existing trust instruments</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Certificate of Trust</div>
-                    <div class="doc-detail">For financial institutions &amp; title companies</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Memorandum of Trust</div>
-                    <div class="doc-detail">Recordable summary for real property transfers</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Declaration of Trust</div>
-                    <div class="doc-detail">Standalone trust declaration instrument</div>
-                </div>
+                <div class="doc-item">RLT (Married)</div>
+                <div class="doc-item">RLT (Single)</div>
+                <div class="doc-item">JTRLT (Community Property)</div>
+                <div class="doc-item">JTRLT (Non-Community Property)</div>
+                <div class="doc-item">Trust Amendments</div>
+                <div class="doc-item">Certificate of Trust</div>
+                <div class="doc-item">Memorandum of Trust</div>
+                <div class="doc-item">Declaration of Trust</div>
             </div>
         </div>
 
         <!-- IRREVOCABLE TRUSTS -->
-        <div class="doc-category">
+        <div class="catalog-section">
             <h2>Irrevocable Trusts</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">Irrevocable Life Insurance Trust (ILIT)</div>
-                    <div class="doc-detail">Married &amp; Single clients</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Intentionally Defective Grantor Trust (IDGT)</div>
-                    <div class="doc-detail">Estate freeze planning</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Spousal Lifetime Access Trust (SLAT)</div>
-                    <div class="doc-detail">Gift tax exemption planning</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Grantor Retained Annuity Trust (GRAT)</div>
-                    <div class="doc-detail">Wealth transfer planning</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Special Needs Trust (SNT)</div>
-                    <div class="doc-detail">1st Party &amp; 3rd Party</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Medicaid Asset Protection Trust (MAPT)</div>
-                    <div class="doc-detail">Married &amp; Single clients</div>
-                </div>
+                <div class="doc-item">ILIT</div>
+                <div class="doc-item">IDGT</div>
+                <div class="doc-item">SLAT</div>
+                <div class="doc-item">GRAT</div>
+                <div class="doc-item">SNT (1st Party)</div>
+                <div class="doc-item">SNT (3rd Party)</div>
+                <div class="doc-item">MAPT</div>
+                <div class="doc-item">Other Irrevocable Trusts</div>
             </div>
         </div>
 
-        <!-- WILLS -->
-        <div class="doc-category">
+        <!-- WILLS & TESTAMENTARY DOCUMENTS -->
+        <div class="catalog-section">
             <h2>Wills &amp; Testamentary Documents</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">Pour-Over Will</div>
-                    <div class="doc-detail">Married &amp; Single clients</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Standalone Will (Non-Pour-Over)</div>
-                    <div class="doc-detail">Outright &amp; trust distributions</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Codicil</div>
-                    <div class="doc-detail">Amendments to existing wills</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Affidavit of Attesting Witness</div>
-                    <div class="doc-detail">Self-proving affidavit for will execution</div>
-                </div>
+                <div class="doc-item">Pour-Over Will</div>
+                <div class="doc-item">Standalone Will</div>
+                <div class="doc-item">Codicil</div>
+                <div class="doc-item">Affidavit of Attesting Witness</div>
             </div>
         </div>
 
-        <!-- POA & HEALTHCARE -->
-        <div class="doc-category">
+        <!-- POWERS OF ATTORNEY & HEALTHCARE DIRECTIVES -->
+        <div class="catalog-section">
             <h2>Powers of Attorney &amp; Healthcare Directives</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">General Durable Power of Attorney</div>
-                    <div class="doc-detail">Client &amp; Spouse &middot; Successive agent orders</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Statutory General Durable POA</div>
-                    <div class="doc-detail">State-specific statutory form</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">POA for Minors</div>
-                    <div class="doc-detail">Guardianship designation for minor children</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Living Will / Advance Directive</div>
-                    <div class="doc-detail">State-specific forms</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">HIPAA Authorization</div>
-                    <div class="doc-detail">Protected health information release forms</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Agent Certification for POA</div>
-                    <div class="doc-detail">Third-party reliance certification</div>
-                </div>
+                <div class="doc-item">General Durable POA</div>
+                <div class="doc-item">Statutory General Durable POA</div>
+                <div class="doc-item">POA for Minors</div>
+                <div class="doc-item">Living Will</div>
+                <div class="doc-item">HIPAA Authorization</div>
+                <div class="doc-item">Agent Certification</div>
             </div>
         </div>
 
-        <!-- TRUST FUNDING -->
-        <div class="doc-category">
+        <!-- TRUST FUNDING & ASSET TRANSFER -->
+        <div class="catalog-section">
             <h2>Trust Funding &amp; Asset Transfer</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">Real Property Deeds</div>
-                    <div class="doc-detail">Into trust, to beneficiaries, to LLC</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Deed Transfer Tax Documents</div>
-                    <div class="doc-detail">State-specific transfer tax forms</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Assignment of Business Interests</div>
-                    <div class="doc-detail">Business entity interests into trust</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Assignment of Tangible Personal Property</div>
-                    <div class="doc-detail">TPP transfers &amp; memoranda</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Beneficiary Designations</div>
-                    <div class="doc-detail">Life insurance, retirement, annuity, stock accounts</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Bank &amp; Investment Account Instructions</div>
-                    <div class="doc-detail">Retitling and transfer letters</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Retirement Account Instructions</div>
-                    <div class="doc-detail">401(k), IRA, and pension transfer letters</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Life Insurance Funding Letters</div>
-                    <div class="doc-detail">Ownership change &amp; beneficiary update requests</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Promissory Notes</div>
-                    <div class="doc-detail">Standard &amp; revolving line of credit</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Gift Documents</div>
-                    <div class="doc-detail">Grantor to trust gift instruments</div>
-                </div>
+                <div class="doc-item">Real Property Deeds</div>
+                <div class="doc-item">Deed Transfer Tax Documents</div>
+                <div class="doc-item">Assignment of Business Interests</div>
+                <div class="doc-item">Assignment of Tangible Personal Property</div>
+                <div class="doc-item">Beneficiary Designations</div>
+                <div class="doc-item">Bank &amp; Investment Account Instructions</div>
+                <div class="doc-item">Retirement Account Instructions</div>
+                <div class="doc-item">Life Insurance Funding Letters</div>
+                <div class="doc-item">Promissory Notes</div>
+                <div class="doc-item">Gift Documents</div>
             </div>
         </div>
 
         <!-- TRUST ADMINISTRATION -->
-        <div class="doc-category">
+        <div class="catalog-section">
             <h2>Trust Administration</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">Affidavit of Death</div>
-                    <div class="doc-detail">Trust administration &amp; probate versions</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Notice of Death of Grantor</div>
-                    <div class="doc-detail">Beneficiary &amp; institutional notifications</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Notice of Irrevocability (UPC)</div>
-                    <div class="doc-detail">Post-death trust becomes irrevocable</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Trustee Acceptance of Appointment</div>
-                    <div class="doc-detail">Successor trustee acceptance document</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Co-Trustee Appointment</div>
-                    <div class="doc-detail">Adding a co-trustee to active trust</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Resignation of Trustee</div>
-                    <div class="doc-detail">Formal resignation instrument</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Waiver, Release &amp; Indemnification</div>
-                    <div class="doc-detail">Full and final accounting waivers</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">EIN Application Documents</div>
-                    <div class="doc-detail">Post-death trust tax ID application</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">DOD Value Request Letters</div>
-                    <div class="doc-detail">Date of death asset valuation requests</div>
-                </div>
+                <div class="doc-item">Affidavit of Death</div>
+                <div class="doc-item">Notice of Death</div>
+                <div class="doc-item">Notice of Irrevocability (UPC)</div>
+                <div class="doc-item">Trustee Acceptance</div>
+                <div class="doc-item">Co-Trustee Appointment</div>
+                <div class="doc-item">Resignation of Trustee</div>
+                <div class="doc-item">Waiver Release &amp; Indemnification</div>
+                <div class="doc-item">EIN Application Documents</div>
+                <div class="doc-item">DOD Value Request Letters</div>
+                <div class="doc-item">Trust Termination Docs</div>
             </div>
         </div>
 
         <!-- PROBATE -->
-        <div class="doc-category">
+        <div class="catalog-section">
             <h2>Probate</h2>
             <div class="doc-grid">
-                <div class="doc-item">
-                    <div class="doc-name">Petition for Administration</div>
-                    <div class="doc-detail">Formal &middot; Testate &amp; Intestate</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Florida Homestead Determination</div>
-                    <div class="doc-detail">Testate &amp; Intestate proceedings</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Florida Exempt Property</div>
-                    <div class="doc-detail">Petition for exempt property determination</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Joinder Documents</div>
-                    <div class="doc-detail">Formal probate joinders &middot; FL Testate &amp; Intestate</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">New York Probate Filings</div>
-                    <div class="doc-detail">NY testate &amp; intestate petition packages</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Notice to Creditors</div>
-                    <div class="doc-detail">Publication &amp; direct notice forms</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Estate Closing Letters</div>
-                    <div class="doc-detail">Final distribution &amp; closing correspondence</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">Credit Bureau Letters</div>
-                    <div class="doc-detail">Decedent credit reporting notifications</div>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-name">IRS Forms (1310, 56)</div>
-                    <div class="doc-detail">Claim for refund &amp; fiduciary notice forms</div>
-                </div>
+                <div class="doc-item">Petition for Administration</div>
+                <div class="doc-item">FL Homestead Determination</div>
+                <div class="doc-item">FL Exempt Property</div>
+                <div class="doc-item">Joinder Documents</div>
+                <div class="doc-item">NY Probate Filings</div>
+                <div class="doc-item">Notice to Creditors</div>
+                <div class="doc-item">Estate Closing Letters</div>
+                <div class="doc-item">Credit Bureau Letters</div>
+                <div class="doc-item">IRS Form 1310</div>
+                <div class="doc-item">IRS Form 56</div>
             </div>
         </div>
 
         <!-- ANCILLARY DOCS -->
-        <div class="ancillary-banner">
-            <h3>Ancillary &amp; Supporting Documents</h3>
-            <p>Every document package comes with the supporting materials needed to make it complete. These aren't afterthoughts &mdash; they're generated alongside the primary instrument to ensure nothing falls through the cracks.</p>
-            <div class="ancillary-list">
-                <span class="ancillary-tag">Estate Planning Flowcharts</span>
-                <span class="ancillary-tag">Estate Plan Summary Letters</span>
-                <span class="ancillary-tag">Matter Info Sheets</span>
-                <span class="ancillary-tag">Funding Instructions</span>
-                <span class="ancillary-tag">Authorization Letters</span>
-                <span class="ancillary-tag">Inquiry Letters (Bank)</span>
-                <span class="ancillary-tag">Inquiry Letters (Life Insurance)</span>
-                <span class="ancillary-tag">Inquiry Letters (Employer)</span>
-                <span class="ancillary-tag">Crummey Notices</span>
-                <span class="ancillary-tag">GRAT Annual Payment Docs</span>
-                <span class="ancillary-tag">Document Supplements (Trusts)</span>
-                <span class="ancillary-tag">Document Supplements (Wills)</span>
-                <span class="ancillary-tag">Successive Agent Orders</span>
-                <span class="ancillary-tag">Beneficiary Change Forms</span>
-                <span class="ancillary-tag">Account Opening Documents</span>
+        <div class="ancillary">
+            <h3>Additional Documents We Prepare</h3>
+            <div class="tag-grid">
+                <div class="tag">Estate Planning Flowcharts</div>
+                <div class="tag">Estate Plan Summary Letters</div>
+                <div class="tag">Matter Info Sheets</div>
+                <div class="tag">Funding Instructions</div>
+                <div class="tag">Authorization Letters</div>
+                <div class="tag">Inquiry Letters (Bank)</div>
+                <div class="tag">Inquiry Letters (Life Insurance)</div>
+                <div class="tag">Inquiry Letters (Employer)</div>
+                <div class="tag">Crummey Notices</div>
+                <div class="tag">GRAT Annual Payment Docs</div>
+                <div class="tag">Document Supplements (Trusts)</div>
+                <div class="tag">Document Supplements (Wills)</div>
+                <div class="tag">Successive Agent Orders</div>
+                <div class="tag">Beneficiary Change Forms</div>
+                <div class="tag">Account Opening Documents</div>
             </div>
         </div>
 
     </div>
 
-    <div class="page-cta">
+    <!-- PAGE CTA -->
+    <section class="page-cta">
         <div class="page-cta-inner">
             <h2>Ready to Lighten Your Drafting Load?</h2>
-            <p>We know these documents because we work with them every day. Let us handle the generation so your attorneys can focus on counsel.</p>
-            <a href="#">Get Started</a>
+            <button class="cta" onclick="openModal()">Get Started</button>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM MODAL -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2>Let's Get Started</h2>
+            <p class="form-subtitle">Tell us a bit about your needs. One of our team members will follow up within one business day.</p>
+
+            <form action="https://formsubmit.co/info@docforge.com" method="POST">
+                <input type="hidden" name="_subject" value="New DocForge Inquiry (from Documents page)">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="box">
+                <input type="text" name="_honey" style="display:none">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="Name" required placeholder="Jane Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="Email" required placeholder="jane@email.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firm">Firm *</label>
+                        <input type="text" id="firm" name="Firm" required placeholder="Your Firm Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="package">Package Interest</label>
+                        <select id="package" name="Package Interest">
+                            <option value="">Select</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Comprehensive">Comprehensive</option>
+                            <option value="Complex">Complex</option>
+                            <option value="Not sure">Not sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">Monthly Volume</label>
+                        <select id="volume" name="Monthly Volume">
+                            <option value="">Select</option>
+                            <option value="1-5 packages">1–5 packages</option>
+                            <option value="5-10 packages">5–10 packages</option>
+                            <option value="10+ packages">10+ packages</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="about">Tell Us More</label>
+                    <textarea id="about" name="Tell Us More" placeholder="What brings you here? What are your drafting needs?"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Inquiry</button>
+            </form>
         </div>
     </div>
 
@@ -705,90 +712,19 @@
         &copy; 2026 DocForge, LLC &middot; Oak Harbor, Washington &middot; Woman Owned &middot; Military Spouse Operated &middot; All rights reserved.
     </footer>
 
-    <!-- CONTACT FORM MODAL -->
-    <div class="modal-overlay" id="contactModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <h2>Let's Get Started</h2>
-            <p class="modal-subtitle">Tell us a little about your firm and what you need. We'll get back to you within one business day.</p>
-            <form action="https://formsubmit.co/info@docforge.com" method="POST">
-                <input type="hidden" name="_subject" value="New DocForge Inquiry (from Documents page)">
-                <input type="hidden" name="_captcha" value="true">
-                <input type="hidden" name="_template" value="box">
-                <input type="hidden" name="_next" value="">
-                <input type="text" name="_honey" style="display:none">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" name="Name" required placeholder="Jane Smith">
-                    </div>
-                    <div class="form-group">
-                        <label for="firm">Firm Name *</label>
-                        <input type="text" id="firm" name="Firm" required placeholder="Smith & Associates">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="Email" required placeholder="jane@smithlaw.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="package">Package Interest</label>
-                    <select id="package" name="Package Interest">
-                        <option value="">Select a tier (optional)</option>
-                        <option value="Standard ($35-$65)">Standard — $35–$65 per package</option>
-                        <option value="Comprehensive ($75-$150)">Comprehensive — $75–$150 per package</option>
-                        <option value="Complex ($175-$300)">Complex — $175–$300 per package</option>
-                        <option value="Not sure yet">Not sure yet — help me figure it out</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="volume">Estimated Monthly Volume</label>
-                    <select id="volume" name="Monthly Volume">
-                        <option value="">How many packages per month? (optional)</option>
-                        <option value="1-5">1–5 packages</option>
-                        <option value="6-10">6–10 packages</option>
-                        <option value="11-20">11–20 packages</option>
-                        <option value="20+">20+ packages</option>
-                        <option value="Just getting started">Just getting started</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Tell Us More</label>
-                    <textarea id="message" name="Message" placeholder="What documents do you need help with? Any specific platforms you use? Anything else we should know?"></textarea>
-                </div>
-                <button type="submit" class="form-submit">Send Inquiry</button>
-                <p class="form-note">We'll respond within 1 business day. Your information stays between us.</p>
-            </form>
-        </div>
-    </div>
-
     <script>
         function openModal() {
             document.getElementById('contactModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
         }
         function closeModal() {
             document.getElementById('contactModal').classList.remove('active');
-            document.body.style.overflow = '';
         }
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
-        });
-        document.querySelectorAll('.page-cta a').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                openModal();
-            });
-        });
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
     </script>
 
 </body>
