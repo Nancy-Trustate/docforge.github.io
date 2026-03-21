@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | DocForge, LLC</title>
+    <meta name="description" content="DocForge per-package pricing — transparent, no subscriptions. Pay only when you use us.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --charcoal: #1c1c1e;
+            --iron: #2a2a2e;
+            --forge-orange: #d4734e;
+            --forge-glow: #e8956e;
+            --parchment: #faf8f5;
+            --snow: #ffffff;
+            --stone: #5a5a64;
+            --text: #2a2a2e;
+            --text-light: #5a5a64;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--parchment);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(28, 28, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 115, 78, 0.15);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--forge-orange);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #a0a0a8;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active { color: var(--forge-orange); }
+
+        /* PAGE HEADER */
+        .page-header {
+            background: var(--charcoal);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(1px 1px at 10% 25%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1.5px 1.5px at 35% 15%, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.25), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.35), transparent),
+                radial-gradient(1px 1px at 90% 35%, rgba(255,255,255,0.2), transparent);
+            z-index: 0;
+        }
+
+        .page-header-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-header .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--forge-orange);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--parchment);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: #8a8a94;
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* GRADIENT TRANSITION */
+        .header-fade {
+            line-height: 0;
+        }
+
+        .header-fade svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            background: var(--parchment);
+            padding: 4rem 2rem 5rem;
+        }
+
+        .pricing-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pricing-card {
+            background: var(--snow);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 4px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--forge-orange);
+            box-shadow: 0 0 0 1px var(--forge-orange), 0 8px 30px rgba(212,115,78,0.12);
+        }
+
+        .pricing-card.featured::after {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--forge-orange);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 3px;
+        }
+
+        .pricing-tier {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.4rem;
+        }
+
+        .pricing-range {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--forge-orange);
+            margin-bottom: 0.2rem;
+        }
+
+        .pricing-unit {
+            font-size: 0.78rem;
+            color: var(--stone);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            min-height: 80px;
+        }
+
+        .pricing-includes {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-includes p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .pricing-includes p::before {
+            content: '\2713';
+            color: var(--forge-orange);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            border: 1px solid var(--forge-orange);
+            color: var(--forge-orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-cta:hover {
+            background: var(--forge-orange);
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: var(--forge-orange);
+            color: white;
+        }
+
+        .pricing-card.featured .pricing-cta:hover {
+            background: var(--forge-glow);
+        }
+
+        /* ADD-ONS */
+        .pricing-addons {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: var(--snow);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 4px;
+        }
+
+        .pricing-addons h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .addon-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .addon-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--forge-orange);
+            margin-bottom: 0.2rem;
+        }
+
+        .addon-label {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* HOW IT WORKS */
+        .how-section {
+            background: var(--snow);
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .how-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-inner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .how-step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--charcoal);
+            color: var(--forge-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .how-step h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .how-step p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* DIVIDER */
+        .divider {
+            text-align: center;
+            padding: 2.5rem 0;
+            position: relative;
+        }
+
+        .divider svg {
+            width: 40px;
+            height: 24px;
+            fill: var(--forge-orange);
+            opacity: 0.4;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: calc(50% - 40px);
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 115, 78, 0.15), transparent);
+        }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        /* RECRUIT CTA */
+        .recruit-section {
+            background: var(--parchment);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .recruit-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            border: 1px dashed rgba(212,115,78,0.35);
+            border-radius: 6px;
+            background: var(--snow);
+        }
+
+        .recruit-inner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .recruit-inner p {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .recruit-cta {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            border: 1px solid var(--forge-orange);
+            color: var(--forge-orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .recruit-cta:hover {
+            background: var(--forge-orange);
+            color: white;
+        }
+
+        /* PAGE CTA */
+        .page-cta {
+            background: var(--charcoal);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-cta::before {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(212, 115, 78, 0.08) 0%, transparent 70%);
+        }
+
+        .page-cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .page-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--parchment);
+            margin-bottom: 0.8rem;
+        }
+
+        .page-cta p {
+            color: #8a8a94;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-cta a {
+            display: inline-block;
+            padding: 0.85rem 2.2rem;
+            background: var(--forge-orange);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(212, 115, 78, 0.2);
+        }
+
+        .page-cta a:hover {
+            background: var(--forge-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(212, 115, 78, 0.35);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background: #141416;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+        }
+
+        /* MODAL FORM */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--snow);
+            border-radius: 6px;
+            padding: 2.5rem;
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+        }
+        .modal-close {
+            position: absolute; top: 1rem; right: 1.2rem;
+            background: none; border: none; font-size: 1.5rem;
+            color: var(--stone); cursor: pointer; transition: color 0.3s;
+        }
+        .modal-close:hover { color: var(--forge-orange); }
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; font-weight: 700;
+            color: var(--charcoal); margin-bottom: 0.3rem;
+        }
+        .modal .modal-subtitle {
+            font-size: 0.88rem; color: var(--text-light);
+            margin-bottom: 1.8rem; line-height: 1.6;
+        }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label {
+            display: block; font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--stone); margin-bottom: 0.4rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 0.7rem 0.9rem;
+            border: 1px solid rgba(0,0,0,0.12); border-radius: 3px;
+            font-family: 'Inter', sans-serif; font-size: 0.92rem;
+            color: var(--text); background: var(--parchment); transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--forge-orange);
+            box-shadow: 0 0 0 3px rgba(212,115,78,0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-submit {
+            display: block; width: 100%; padding: 0.85rem;
+            background: var(--forge-orange); color: white; border: none;
+            font-family: 'Inter', sans-serif; font-weight: 600;
+            font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
+            border-radius: 3px; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem;
+        }
+        .form-submit:hover {
+            background: var(--forge-glow); transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(212,115,78,0.25);
+        }
+        .form-note {
+            text-align: center; font-size: 0.75rem;
+            color: var(--stone); margin-top: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 0.8rem 1.2rem; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 0.72rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .addons-grid { grid-template-columns: 1fr; }
+            .how-steps { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .modal { padding: 1.8rem 1.5rem; }
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="nav-ring" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8956e"/><stop offset="100%" stop-color="#b85a3a"/></linearGradient></defs>
+                <circle cx="200" cy="200" r="155" fill="none" stroke="url(#nav-ring)" stroke-width="4.5"/>
+                <circle cx="200" cy="200" r="153" fill="rgba(212,115,78,0.04)"/>
+                <g transform="translate(200, 195) rotate(-30)">
+                    <rect x="-7" y="-15" width="14" height="155" rx="5" fill="#5a4a32"/>
+                    <rect x="-10" y="-18" width="20" height="8" rx="2" fill="#8a7a6a" opacity="0.7"/>
+                    <rect x="-45" y="-48" width="90" height="34" rx="5" fill="#d4734e"/>
+                    <rect x="-42" y="-45" width="84" height="9" rx="3" fill="#e8956e" opacity="0.35"/>
+                    <rect x="36" y="-48" width="14" height="34" rx="3" fill="#b85a3a"/>
+                    <path d="M-45,-38 L-62,-31 L-45,-24 Z" fill="#b85a3a"/>
+                </g>
+            </svg>
+            DocForge
+        </a>
+        <ul>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="documents.html">What We Draft</a></li>
+            <li><a href="pricing.html" class="active">Pricing</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <p class="section-label">Transparent Pricing</p>
+            <h1>Pay Per Package. No Subscriptions.</h1>
+            <p>You only pay when you use us. Every package includes drafting, generation, formatting review, and one round of revisions. No retainers, no commitments, no surprises.</p>
+        </div>
+    </div>
+
+    <div class="header-fade">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1c1c1e"/>
+                    <stop offset="100%" stop-color="#faf8f5"/>
+                </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="1440" height="100" fill="url(#fade)"/>
+            <ellipse cx="720" cy="30" rx="400" ry="30" fill="rgba(212,115,78,0.03)"/>
+        </svg>
+    </div>
+
+    <div class="pricing-section">
+        <div class="pricing-inner">
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-tier">Standard</div>
+                    <div class="pricing-range">$35 &ndash; $65</div>
+                    <div class="pricing-unit">per document package</div>
+                    <p class="pricing-desc">Individual documents and straightforward drafting. The essentials your firm needs, done right.</p>
+                    <div class="pricing-includes">
+                        <p>Simple wills</p>
+                        <p>Individual powers of attorney</p>
+                        <p>Healthcare directives</p>
+                        <p>Trust amendments &amp; restatements</p>
+                        <p>Single standalone documents</p>
+                    </div>
+                    <button class="pricing-cta" onclick="openModal()">Get Started</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Comprehensive</div>
+                    <div class="pricing-range">$75 &ndash; $150</div>
+                    <div class="pricing-unit">per document package</div>
+                    <p class="pricing-desc">Full estate planning bundles and multi-document sets. The sweet spot for most firms.</p>
+                    <div class="pricing-includes">
+                        <p>Revocable living trust packages</p>
+                        <p>Trust + will + POA + healthcare bundles</p>
+                        <p>Trust funding document sets</p>
+                        <p>Trust administration packages</p>
+                        <p>Matter sync from your intake platform</p>
+                    </div>
+                    <button class="pricing-cta" onclick="openModal()">Get Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-tier">Complex</div>
+                    <div class="pricing-range">$175 &ndash; $300</div>
+                    <div class="pricing-unit">per document package</div>
+                    <p class="pricing-desc">Specialized trusts, full probate filings, and anything that needs extra expertise.</p>
+                    <div class="pricing-includes">
+                        <p>Irrevocable trusts (ILIT, SLAT, GRAT, SNT)</p>
+                        <p>Complete probate filing packages</p>
+                        <p>Multi-state coordinated documents</p>
+                        <p>Complex trust structures</p>
+                        <p>Priority turnaround included</p>
+                    </div>
+                    <button class="pricing-cta" onclick="openModal()">Get Started</button>
+                </div>
+            </div>
+
+            <div class="pricing-addons">
+                <h3>Add-Ons &amp; Discounts</h3>
+                <div class="addons-grid">
+                    <div class="addon-item">
+                        <div class="addon-price">+50%</div>
+                        <div class="addon-label">Rush turnaround (24 hours or less)</div>
+                    </div>
+                    <div class="addon-item">
+                        <div class="addon-price">$25</div>
+                        <div class="addon-label">Additional revision rounds beyond the first</div>
+                    </div>
+                    <div class="addon-item">
+                        <div class="addon-price">10% Off</div>
+                        <div class="addon-label">Volume discount for 10+ packages per month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-section">
+        <div class="how-inner">
+            <h2>How It Works</h2>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="how-step-num">1</div>
+                    <h4>Reach Out</h4>
+                    <p>Tell us what you need. We'll confirm the tier, scope, and turnaround time.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">2</div>
+                    <h4>We Draft</h4>
+                    <p>Add us to your Trustate account and assign the matter. We handle the rest.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">3</div>
+                    <h4>You Deliver</h4>
+                    <p>Polished documents, ready for your client. Billed per package after completion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">
+        <svg viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="14" width="24" height="4" rx="1"/>
+            <rect x="12" y="10" width="16" height="5" rx="1"/>
+            <rect x="4" y="17" width="32" height="3" rx="1"/>
+            <rect x="14" y="20" width="12" height="4" rx="1"/>
+        </svg>
+    </div>
+
+    <!-- DRAFTER RECRUITMENT -->
+    <div class="recruit-section">
+        <div class="recruit-inner">
+            <h3>Interested in Becoming a Drafter?</h3>
+            <p>We're always looking for experienced paralegals and legal assistants who know their way around trusts, estates, and probate. If you're Trustate Certified (or willing to get certified) and want flexible, remote contract work, we'd love to hear from you.</p>
+            <a href="mailto:careers@docforge.com?subject=Contract%20Drafter%20Application" class="recruit-cta">Apply to Draft With Us</a>
+        </div>
+    </div>
+
+    <div class="page-cta">
+        <div class="page-cta-inner">
+            <h2>Ready to Lighten Your Drafting Load?</h2>
+            <p>No subscriptions. No commitments. Just polished documents, exactly when you need them.</p>
+            <a href="#" onclick="openModal(); return false;">Get Started</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 DocForge, LLC &middot; Oak Harbor, Washington &middot; Woman Owned &middot; Military Spouse Operated &middot; All rights reserved.
+    </footer>
+
+    <!-- CONTACT FORM MODAL -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Let's Get Started</h2>
+            <p class="modal-subtitle">Tell us a little about your firm and what you need. We'll get back to you within one business day.</p>
+            <form action="https://formsubmit.co/info@docforge.com" method="POST">
+                <input type="hidden" name="_subject" value="New DocForge Inquiry (from Pricing page)">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_next" value="">
+                <input type="text" name="_honey" style="display:none">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="Name" required placeholder="Jane Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="firm">Firm Name *</label>
+                        <input type="text" id="firm" name="Firm" required placeholder="Smith & Associates">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="Email" required placeholder="jane@smithlaw.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="package">Package Interest</label>
+                    <select id="package" name="Package Interest">
+                        <option value="">Select a tier (optional)</option>
+                        <option value="Standard ($35-$65)">Standard — $35–$65 per package</option>
+                        <option value="Comprehensive ($75-$150)">Comprehensive — $75–$150 per package</option>
+                        <option value="Complex ($175-$300)">Complex — $175–$300 per package</option>
+                        <option value="Not sure yet">Not sure yet — help me figure it out</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="volume">Estimated Monthly Volume</label>
+                    <select id="volume" name="Monthly Volume">
+                        <option value="">How many packages per month? (optional)</option>
+                        <option value="1-5">1–5 packages</option>
+                        <option value="6-10">6–10 packages</option>
+                        <option value="11-20">11–20 packages</option>
+                        <option value="20+">20+ packages</option>
+                        <option value="Just getting started">Just getting started</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell Us More</label>
+                    <textarea id="message" name="Message" placeholder="What documents do you need help with? Any specific platforms you use? Anything else we should know?"></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Inquiry</button>
+                <p class="form-note">We'll respond within 1 business day. Your information stays between us.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+
+</body>
+</html>

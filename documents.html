@@ -71,209 +71,133 @@
             transition: color 0.3s;
         }
 
-        nav a:hover { color: var(--forge-orange); }
-        nav a.active { color: var(--forge-orange); }
+        nav a:hover, nav a.active { color: var(--forge-orange); }
 
         /* PAGE HEADER */
         .page-header {
             background: var(--charcoal);
-            padding: 8rem 2rem 4rem;
+            padding: 7rem 2rem 3rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background:
-                radial-gradient(1px 1px at 10% 25%, rgba(255,255,255,0.3), transparent),
-                radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.4), transparent),
-                radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.25), transparent),
-                radial-gradient(1.5px 1.5px at 85% 20%, rgba(255,255,255,0.35), transparent),
-                radial-gradient(1px 1px at 55% 10%, rgba(255,255,255,0.3), transparent);
-            z-index: 0;
-        }
-
-        .page-header-content {
-            position: relative;
-            z-index: 1;
+        .page-header-inner {
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        .page-header .label {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--forge-orange);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
         }
 
         .page-header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
             color: var(--parchment);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
-
-        .page-header h1 span { color: var(--forge-orange); }
 
         .page-header p {
-            font-size: 1.05rem;
             color: #8a8a94;
+            font-size: 1rem;
             line-height: 1.7;
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto;
         }
 
-        /* DISCLAIMER BANNER */
+        /* DISCLAIMER */
         .disclaimer {
-            background: var(--iron);
-            border-left: 4px solid var(--forge-orange);
-            padding: 1.2rem 2rem;
             max-width: 900px;
-            margin: -1.5rem auto 0;
-            position: relative;
-            z-index: 2;
+            margin: -1rem auto 0;
+            padding: 1.2rem 1.5rem;
+            background: rgba(212, 115, 78, 0.06);
+            border: 1px solid rgba(212, 115, 78, 0.15);
             border-radius: 4px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        .disclaimer p {
-            color: #c0c0c8;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
+            color: var(--text-light);
             line-height: 1.6;
             text-align: justify;
+            position: relative;
+            z-index: 2;
         }
 
-        .disclaimer strong {
-            color: var(--forge-orange);
-        }
+        .disclaimer strong { color: var(--forge-orange); }
 
-        /* MAIN CONTENT */
+        /* CATALOG */
         .catalog {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 2rem 5rem;
+            padding: 3rem 2rem 5rem;
         }
 
-        .catalog-intro {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-bottom: 3rem;
-            text-align: justify;
-        }
-
-        /* CATEGORY */
-        .category {
+        /* DOCUMENT CATEGORY */
+        .doc-category {
             margin-bottom: 3rem;
         }
 
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 2px solid rgba(212, 115, 78, 0.2);
-        }
-
-        .category-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--charcoal);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--forge-orange);
-            font-size: 0.9rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            flex-shrink: 0;
-        }
-
-        .category h2 {
+        .doc-category h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--charcoal);
-        }
-
-        .category-desc {
-            color: var(--text-light);
-            font-size: 0.92rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            text-align: justify;
+            margin-bottom: 0.3rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--forge-orange);
         }
 
         .doc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.8rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
         }
 
         .doc-item {
-            background: var(--snow);
-            border: 1px solid rgba(0,0,0,0.06);
-            padding: 1rem 1.2rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: var(--text);
-            transition: all 0.2s;
-            position: relative;
-            padding-left: 1.6rem;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            transition: background 0.2s;
         }
 
-        .doc-item::before {
-            content: '';
-            position: absolute;
-            left: 0.7rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--forge-orange);
-            opacity: 0.5;
-        }
+        .doc-item:hover { background: rgba(212, 115, 78, 0.04); }
 
-        .doc-item:hover {
-            border-color: rgba(212, 115, 78, 0.3);
-            transform: translateX(4px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-        }
-
-        .doc-item .doc-name {
+        .doc-name {
             font-weight: 600;
+            font-size: 0.9rem;
             color: var(--charcoal);
         }
 
-        .doc-item .doc-detail {
-            font-size: 0.8rem;
+        .doc-detail {
+            font-size: 0.78rem;
             color: var(--stone);
-            margin-top: 0.2rem;
+            margin-top: 0.1rem;
         }
 
-        /* ANCILLARY SECTION */
+        /* ANCILLARY */
         .ancillary-banner {
+            margin-top: 2rem;
+            padding: 2rem;
             background: var(--snow);
             border: 1px solid rgba(0,0,0,0.06);
             border-radius: 4px;
-            padding: 2rem;
-            margin-bottom: 3rem;
         }
 
         .ancillary-banner h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--charcoal);
             margin-bottom: 0.5rem;
         }
 
-        .ancillary-banner p {
+        .ancillary-banner > p {
+            font-size: 0.88rem;
             color: var(--text-light);
-            font-size: 0.92rem;
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
             text-align: justify;
         }
 
@@ -281,7 +205,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
         }
 
         .ancillary-tag {
@@ -429,10 +352,6 @@
             text-align: center; font-size: 0.75rem;
             color: var(--stone); margin-top: 1rem;
         }
-        @media (max-width: 480px) {
-            .form-row { grid-template-columns: 1fr; }
-            .modal { padding: 1.8rem 1.5rem; }
-        }
 
         /* FOOTER */
         footer {
@@ -451,6 +370,8 @@
             .catalog { padding: 3rem 1.5rem; }
             .doc-grid { grid-template-columns: 1fr; }
             .disclaimer { margin: -1rem 1rem 0; padding: 1rem 1.2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .modal { padding: 1.8rem 1.5rem; }
         }
 
         html { scroll-behavior: smooth; }
@@ -478,34 +399,29 @@
         <ul>
             <li><a href="index.html#services">Services</a></li>
             <li><a href="documents.html" class="active">What We Draft</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
 
     <div class="page-header">
-        <div class="page-header-content">
-            <h1>What We Can <span>Draft</span> for You</h1>
-            <p>Need documents generated for a client? Here's what your firm can hand off to DocForge. You focus on counsel &mdash; we'll handle the drafting, generation, and polish.</p>
+        <div class="page-header-inner">
+            <p class="label">Document Catalog</p>
+            <h1>What We Can Draft for You</h1>
+            <p>Whether it's a straightforward revocable trust or a complex multi-state probate filing, our team has the expertise and the Trustate platform knowledge to generate it right.</p>
         </div>
     </div>
 
     <div class="disclaimer">
-        <p><strong>Important:</strong> DocForge provides professional document drafting and generation services as support staff. We are not attorneys and do not provide legal advice. All documents generated by DocForge must be reviewed, assessed, and approved by a licensed attorney before execution. Our work product is designed to save your firm time &mdash; not replace your professional judgment.</p>
+        <strong>Attorney Review Required:</strong> DocForge provides professional document drafting and generation services as support staff. We are not attorneys and do not provide legal advice. All documents generated by DocForge are intended for review, approval, and supervision by a licensed attorney before delivery to any client.
     </div>
 
     <div class="catalog">
 
-        <p class="catalog-intro">Whether it's a straightforward revocable trust or a complex irrevocable planning instrument, we've got the expertise to draft it. Just assign us the matter &mdash; we'll generate the full package, review it for accuracy, and hand it back ready for your attorney's final sign-off.</p>
-
-        <!-- REVOCABLE TRUSTS -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">1</div>
-                <h2>Revocable Living Trusts</h2>
-            </div>
-            <p class="category-desc">The cornerstone of most estate plans. We draft single and joint revocable trusts for married and single clients, covering community and non-community property states, disclaimer and marital trust planning, and descendant's trust structures.</p>
+        <!-- REVOCABLE LIVING TRUSTS -->
+        <div class="doc-category">
+            <h2>Revocable Living Trusts</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">Revocable Living Trust (RLT)</div>
@@ -535,12 +451,8 @@
         </div>
 
         <!-- IRREVOCABLE TRUSTS -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">2</div>
-                <h2>Irrevocable Trusts</h2>
-            </div>
-            <p class="category-desc">Advanced planning instruments for asset protection, tax minimization, and special needs planning. We handle the complexity so your firm can focus on strategy.</p>
+        <div class="doc-category">
+            <h2>Irrevocable Trusts</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">Irrevocable Life Insurance Trust (ILIT)</div>
@@ -570,12 +482,8 @@
         </div>
 
         <!-- WILLS -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">3</div>
-                <h2>Wills &amp; Testamentary Documents</h2>
-            </div>
-            <p class="category-desc">Standalone wills and pour-over wills that work alongside trust-based estate plans. We draft for married and single clients with outright or trust distributions.</p>
+        <div class="doc-category">
+            <h2>Wills &amp; Testamentary Documents</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">Pour-Over Will</div>
@@ -596,13 +504,9 @@
             </div>
         </div>
 
-        <!-- POWERS OF ATTORNEY -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">4</div>
-                <h2>Powers of Attorney &amp; Healthcare Directives</h2>
-            </div>
-            <p class="category-desc">Financial and healthcare powers of attorney, living wills, and HIPAA forms. State-specific formatting with proper agent designation orders.</p>
+        <!-- POA & HEALTHCARE -->
+        <div class="doc-category">
+            <h2>Powers of Attorney &amp; Healthcare Directives</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">General Durable Power of Attorney</div>
@@ -632,12 +536,8 @@
         </div>
 
         <!-- TRUST FUNDING -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">5</div>
-                <h2>Trust Funding &amp; Asset Transfer</h2>
-            </div>
-            <p class="category-desc">A trust is only as good as its funding. We draft all the transfer documents needed to move your client's assets into the trust &mdash; deeds, assignments, beneficiary changes, and retitling instructions.</p>
+        <div class="doc-category">
+            <h2>Trust Funding &amp; Asset Transfer</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">Real Property Deeds</div>
@@ -669,7 +569,7 @@
                 </div>
                 <div class="doc-item">
                     <div class="doc-name">Life Insurance Funding Letters</div>
-                    <div class="doc-detail">Ownership change and beneficiary update letters</div>
+                    <div class="doc-detail">Ownership change &amp; beneficiary update requests</div>
                 </div>
                 <div class="doc-item">
                     <div class="doc-name">Promissory Notes</div>
@@ -682,13 +582,9 @@
             </div>
         </div>
 
-        <!-- TRUST ADMIN -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">6</div>
-                <h2>Trust Administration</h2>
-            </div>
-            <p class="category-desc">When a grantor passes, the trust administration process begins. We generate all the documents needed for post-death trust administration &mdash; from initial notifications to final asset distribution.</p>
+        <!-- TRUST ADMINISTRATION -->
+        <div class="doc-category">
+            <h2>Trust Administration</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">Affidavit of Death</div>
@@ -730,12 +626,8 @@
         </div>
 
         <!-- PROBATE -->
-        <div class="category">
-            <div class="category-header">
-                <div class="category-icon">7</div>
-                <h2>Probate</h2>
-            </div>
-            <p class="category-desc">State-specific probate document packages for testate and intestate estates. Currently supporting Florida and New York, with more states being added to the Trustate platform continuously.</p>
+        <div class="doc-category">
+            <h2>Probate</h2>
             <div class="doc-grid">
                 <div class="doc-item">
                     <div class="doc-name">Petition for Administration</div>
@@ -755,15 +647,15 @@
                 </div>
                 <div class="doc-item">
                     <div class="doc-name">New York Probate Filings</div>
-                    <div class="doc-detail">NY testate &amp; intestate proceedings</div>
+                    <div class="doc-detail">NY testate &amp; intestate petition packages</div>
                 </div>
                 <div class="doc-item">
                     <div class="doc-name">Notice to Creditors</div>
-                    <div class="doc-detail">Publication notices &amp; statute of limitations notices</div>
+                    <div class="doc-detail">Publication &amp; direct notice forms</div>
                 </div>
                 <div class="doc-item">
-                    <div class="doc-name">Closing Letters</div>
-                    <div class="doc-detail">Final estate administration closing correspondence</div>
+                    <div class="doc-name">Estate Closing Letters</div>
+                    <div class="doc-detail">Final distribution &amp; closing correspondence</div>
                 </div>
                 <div class="doc-item">
                     <div class="doc-name">Credit Bureau Letters</div>
@@ -805,7 +697,7 @@
         <div class="page-cta-inner">
             <h2>Ready to Lighten Your Drafting Load?</h2>
             <p>We know these documents because we work with them every day. Let us handle the generation so your attorneys can focus on counsel.</p>
-            <a href="mailto:info@docforge.com">Get Started</a>
+            <a href="#">Get Started</a>
         </div>
     </div>
 
